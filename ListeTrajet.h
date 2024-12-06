@@ -39,6 +39,16 @@ public:
     //
     // Contrat :
     //
+    Element *GetTete ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    int GetTaille ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 //-------------------------------------------- Constructeurs - destructeur
 

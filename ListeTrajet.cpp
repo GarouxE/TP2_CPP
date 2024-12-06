@@ -39,6 +39,16 @@ void ListeTrajet::AjouterEnTete (Element *unElement)
     taille++;
 } //----- Fin de Méthode
 
+Element * ListeTrajet::GetTete ( )
+{
+    return tete;
+} //----- Fin de Méthode
+
+int ListeTrajet::GetTaille ( )
+{
+    return taille;
+} //----- Fin de Méthode
+
 
 //-------------------------------------------- Constructeurs - destructeur
 
