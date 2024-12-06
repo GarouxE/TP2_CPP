@@ -11,7 +11,7 @@
 #define LISTETRAJET_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "trajet.h"
+#include "Element.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -34,7 +34,7 @@ public:
     // Contrat :
     //
 
-    void Ajouter (Trajet *trajet);
+    void AjouterEnTete (Element *unElement);
     // Mode d'emploi :
     //
     // Contrat :
@@ -53,12 +53,14 @@ public:
     //
     // Contrat :
     //
-
+    
+    Element *tete;
+    int taille;
 //------------------------------------------------------------------ PRIVE
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-    Trajet **liste;
+
 //----------------------------------------------------- Attributs protégés
 
 };
