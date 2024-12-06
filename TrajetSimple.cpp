@@ -18,6 +18,7 @@ using namespace std;
 #include "TrajetSimple.h"
 
 //------------------------------------------------------------- Constantes
+const char* Transport[] = { "BATEAU", "AUTO", "TRAIN", "AVION"};
 
 //----------------------------------------------------------------- PUBLIC
 
@@ -45,8 +46,18 @@ TrajetSimple::TrajetSimple (const char *villeDep, const char *villeArr, ModeTran
 
 } //----- Fin de TrajetSimple
 
+int TrajetSimple::Afficher ()
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <TrajetSimple>" << endl;
+#endif
+    printf("de %s a %s en %s",villeDep,villeArr,Transport[(int)mode]);
+    return 0;
+}
 
-TrajetSimple::~TrajetSimple ( )
+TrajetSimple::~TrajetSimple ()
 // Algorithme :
 //
 {
