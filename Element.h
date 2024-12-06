@@ -8,7 +8,7 @@
 
 //---------- Interface de la classe <Element> (fichier Element.h) ----------------
 #if ! defined ( ELEMENT_H )
-#define Element_H
+#define ELEMENT_H
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
