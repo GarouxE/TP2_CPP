@@ -32,13 +32,13 @@ class Trajet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    virtual void Afficher ( );
     // Mode d'emploi :
-    //
+    
     // Contrat :
-    //
+    
 
-    Trajet (const char *villeDep, const char *villeArr);
+    Trajet (const char *villeDep, const char *villeArr, TypeTrajet typeTrajet);
     // Mode d'emploi :
     //
     // Contrat :
