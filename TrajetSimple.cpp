@@ -54,7 +54,7 @@ int TrajetSimple::Afficher ()
 #ifdef MAP
     cout << "Appel au constructeur de <TrajetSimple>" << endl;
 #endif
-    printf("de %s a %s en %s",depart,arrive,Transport[(int)mode]);
+        cout << "de" << depart << "a"<< arrive<< "en"<< Transport[(int)mode]<< endl;
     return 0;
 }
 
