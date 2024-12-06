@@ -28,12 +28,6 @@ class ListeTrajet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
     void AjouterEnTete (Element *unElement);
     // Mode d'emploi :
     //
@@ -53,14 +47,13 @@ public:
     //
     // Contrat :
     //
-    
-    Element *tete;
-    int taille;
+
 //------------------------------------------------------------------ PRIVE
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+    Element *tete;
+    int taille;
 //----------------------------------------------------- Attributs protégés
 
 };

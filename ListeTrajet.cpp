@@ -24,7 +24,7 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void ListeTrajet::AjouterEnTete (Element *unElement)
 {
-    unElement->eSuivant = tete;
+    unElement->SetElementSuivant(tete);
     tete = unElement;
     taille++;
 } //----- Fin de Méthode
@@ -53,7 +53,7 @@ ListeTrajet::~ListeTrajet ( )
 #endif
     Element *current = tete;
     while (current != NULL) {
-        current = current->eSuivant;
+        current = current->GetElementSuivant();
         delete current;
     }
 } //----- Fin de ~ListeTrajet

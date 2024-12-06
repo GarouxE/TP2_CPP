@@ -28,7 +28,17 @@ class Element :
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    Trajet *GetTrajet ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    Element *GetElementSuivant ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    void SetElementSuivant ( Element *unElement );
     // Mode d'emploi :
     //
     // Contrat :
@@ -47,13 +57,12 @@ public:
     // Contrat :
     //
 
-    Trajet *trajet;
-    Element *eSuivant;
 //------------------------------------------------------------------ PRIVE
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+    Trajet *trajet;
+    Element *eSuivant;
 //----------------------------------------------------- Attributs protégés
 };
 

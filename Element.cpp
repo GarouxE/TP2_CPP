@@ -22,12 +22,23 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Element::Méthode ( liste des paramètres )
+Trajet *Element::GetTrajet ( )
 // Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+{
+    return trajet;
+} //----- Fin de Méthode
 
+Element *Element::GetElementSuivant ( )
+// Algorithme :
+{
+    return eSuivant;
+} //----- Fin de Méthode
+
+void Element::SetElementSuivant ( Element *unElement )
+// Algorithme :
+{
+    eSuivant = unElement;
+} //----- Fin de Méthode
 
 
 //-------------------------------------------- Constructeurs - destructeur
