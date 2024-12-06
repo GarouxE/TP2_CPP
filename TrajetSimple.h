@@ -46,7 +46,7 @@ public:
     // Contrat :
     //
 
-    int Afficher();
+    void Afficher();
 
     virtual ~TrajetSimple ( );
     // Mode d'emploi :
