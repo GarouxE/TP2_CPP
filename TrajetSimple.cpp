@@ -24,14 +24,17 @@ const char* Transport[] = { "BATEAU", "AUTO", "TRAIN", "AVION"};
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type TrajetSimple::Méthode ( liste des paramètres )
+
+void TrajetSimple::Afficher ()
 // Algorithme :
 //
-//{
-//} //----- Fin de Méthode
+{
+#ifdef MAP
+    cout << "Appel a afficher de <TrajetSimple>" << endl;
+#endif
+    cout << "de "<< depart << " à "<< arrive<< " en "<< Transport[(int)mode]<< endl;
 
-
-
+}
 
 //-------------------------------------------- Constructeurs - destructeur
 
@@ -45,21 +48,6 @@ TrajetSimple::TrajetSimple (const char *villeDep, const char *villeArr, ModeTran
     mode = modeTransport;
 
 } //----- Fin de TrajetSimple
-
-
-
-void TrajetSimple::Afficher ()
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel a afficher de <TrajetSimple>" << endl;
-#endif
-    cout << "de "<< depart << " à "<< arrive<< " en "<< Transport[(int)mode]<< endl;
-
-}
-
-
 
 
 TrajetSimple::~TrajetSimple()

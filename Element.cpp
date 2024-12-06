@@ -16,7 +16,6 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Element.h"
-
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
@@ -27,7 +26,7 @@ void Element::Afficher ( )
 {
     cout << "Trajet : " << "\r\n";
     trajet->Afficher();
-    if (eSuivant == NULL) cout << "Pas de trajet suisant" << "\r\n";
+    if (eSuivant == NULL) cout << "Pas de trajet suivant" << "\r\n";
     else {
         cout << "Trajet suisant : " << "\r\n";
         eSuivant->trajet->Afficher();

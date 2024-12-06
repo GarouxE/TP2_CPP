@@ -25,11 +25,10 @@ using namespace std;
 void ListeTrajet::Afficher( ) {
     Element *current = tete;
     while (current != NULL) {
-        current = current->GetElementSuivant();
         current->Afficher();
+        current = current->GetElementSuivant();
     }
-    cout << "Taille de la liste" << "\r\n";
-    cout << taille << "\r\n";
+    cout << "Taille de la liste" << taille << "\r\n";
 } //----- Fin de Méthode
 
 void ListeTrajet::AjouterEnTete (Element *unElement)
