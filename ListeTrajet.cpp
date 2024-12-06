@@ -22,6 +22,16 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+void ListeTrajet::Afficher( ) {
+    Element *current = tete;
+    while (current != NULL) {
+        current = current->GetElementSuivant();
+        current->Afficher();
+    }
+    cout << "Taille de la liste" << "\r\n";
+    cout << taille << "\r\n";
+} //----- Fin de Méthode
+
 void ListeTrajet::AjouterEnTete (Element *unElement)
 {
     unElement->SetElementSuivant(tete);

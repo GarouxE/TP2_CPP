@@ -22,6 +22,19 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+void Element::Afficher ( )
+// Algorithme :
+{
+    cout << "Trajet : " << "\r\n";
+    trajet->Afficher();
+    if (eSuivant == NULL) cout << "Pas de trajet suisant" << "\r\n";
+    else {
+        cout << "Trajet suisant : " << "\r\n";
+        eSuivant->trajet->Afficher();
+    }
+
+} //----- Fin de Méthode
+
 Trajet *Element::GetTrajet ( )
 // Algorithme :
 {

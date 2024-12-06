@@ -28,6 +28,12 @@ class ListeTrajet
 
 public:
 //----------------------------------------------------- Méthodes publiques
+    void Afficher ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
     void AjouterEnTete (Element *unElement);
     // Mode d'emploi :
     //

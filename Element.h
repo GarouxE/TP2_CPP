@@ -22,17 +22,24 @@
 //
 //------------------------------------------------------------------------
 
-class Element :
+class Element 
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
+    void Afficher ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
     Trajet *GetTrajet ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
+
     Element *GetElementSuivant ( );
     // Mode d'emploi :
     //
