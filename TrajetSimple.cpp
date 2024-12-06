@@ -34,7 +34,7 @@ const char* Transport[] = { "BATEAU", "AUTO", "TRAIN", "AVION"};
 
 //-------------------------------------------- Constructeurs - destructeur
 
-TrajetSimple::TrajetSimple (const char *villeDep, const char *villeArr, ModeTransport modeTransport)
+TrajetSimple::TrajetSimple (const char *villeDep, const char *villeArr, ModeTransport modeTransport):Trajet(villeDep, villeArr)
 // Algorithme :
 //
 {
@@ -42,9 +42,10 @@ TrajetSimple::TrajetSimple (const char *villeDep, const char *villeArr, ModeTran
     cout << "Appel au constructeur de <TrajetSimple>" << endl;
 #endif
     mode = modeTransport;
-    Trajet(villeDep, villeArr);
 
 } //----- Fin de TrajetSimple
+
+
 
 int TrajetSimple::Afficher ()
 // Algorithme :
@@ -53,9 +54,12 @@ int TrajetSimple::Afficher ()
 #ifdef MAP
     cout << "Appel au constructeur de <TrajetSimple>" << endl;
 #endif
-    printf("de %s a %s en %s",villeDep,villeArr,Transport[(int)mode]);
+    printf("de %s a %s en %s",depart,arrive,Transport[(int)mode]);
     return 0;
 }
+
+
+
 
 TrajetSimple::~TrajetSimple ()
 // Algorithme :
