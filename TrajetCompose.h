@@ -20,6 +20,10 @@
 #include "ListeTrajet.h"
 #endif
 
+#ifndef  ELEMENT_H
+#include "Element.h"
+#endif
+
 
 //------------------------------------------------------------- Constantes
 
@@ -46,7 +50,7 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
 
 
-    TrajetCompose (ListeTrajet trajets);
+    TrajetCompose (ListeTrajet trajetsListe,const char *villeDep,const char *villeArr);
     // Mode d'emploi :
     //
     // Contrat :
@@ -63,7 +67,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
+ListeTrajet trajets;
 
 //----------------------------------------------------- Attributs protégés
 
