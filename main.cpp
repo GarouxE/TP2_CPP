@@ -1,20 +1,18 @@
 //------------------------------------------------------ Include personnel
 #include <iostream>
-#include "Ensemble.h"
+#include "Trajet.h"
+#include "Element.h"
+#include "TrajetSimple.h"
 using namespace std;
 
 int main() 
 {
-    int t1[6] = {1,2,3,4};
-    int t2[3] = {1,2,3};
+    Trajet trajet("A","B", SIMPLE);
+    TrajetSimple trajetS("A", "B", AUTO);
+    Element e(Trajet);
 
-    Ensemble em1( t1, 2 );
-    Ensemble em2( t2, 3 );
-
-    em1.Afficher( );
-    cout << "\r\nem1 intersect em2\r\n";
-    cout << em1.Intersection( em2 ) << "\r\n";
-    em1.Afficher( );
+    printf("test1\n");
+    e.Afficher();
 
     return 0;
 }
