@@ -24,11 +24,11 @@ using namespace std;
 void Element::Afficher ( )
 // Algorithme :
 {
-    cout << "Trajet : " << "\r\n";
+    cout << "Trajet : ";
     trajet->Afficher();
+    cout << "Trajet suivant : ";
     if (eSuivant == NULL) cout << "Pas de trajet suivant" << "\r\n";
     else {
-        cout << "Trajet suisant : " << "\r\n";
         eSuivant->trajet->Afficher();
     }
 

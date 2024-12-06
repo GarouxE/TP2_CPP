@@ -28,7 +28,7 @@ void ListeTrajet::Afficher( ) {
         current->Afficher();
         current = current->GetElementSuivant();
     }
-    cout << "Taille de la liste" << taille << "\r\n";
+    cout << "\nTaille actuelle de la liste : " << taille << "\r\n";
 } //----- Fin de Méthode
 
 void ListeTrajet::AjouterEnTete (Element *unElement)
