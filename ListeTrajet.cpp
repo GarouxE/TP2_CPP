@@ -70,15 +70,10 @@ ListeTrajet::~ListeTrajet ( )
 #ifdef MAP
     cout << "Appel au destructeur de <ListeTrajet>" << endl;
 #endif
-    Element *current = tete;
-    while (current != NULL) {
-        current = current->GetElementSuivant();
-        delete current;
-    }
+
 } //----- Fin de ~ListeTrajet
 
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
