@@ -32,16 +32,6 @@ using namespace std;
 
 
 //-------------------------------------------- Constructeurs - destructeur
-TrajetCompose::TrajetCompose ( ListeTrajet trajetsListe,const char *villeDep,const char *villeArr ):Trajet(villeDep, villeArr)
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <TrajetCompose>" << endl;
-#endif
-
-      trajets = trajetsListe;
-} //----- Fin de TrajetCompose (constructeur de copie)
 
 
 TrajetCompose::TrajetCompose (ListeTrajet trajetsListe,const char *villeDep,const char *villeArr):Trajet(villeDep,villeArr,COMPOSE)
