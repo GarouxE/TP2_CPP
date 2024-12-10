@@ -15,16 +15,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
-
-#ifndef  LISTETRAJET_H
 #include "ListeTrajet.h"
-#endif
-
-#ifndef  ELEMENT_H
-#include "Element.h"
-#endif
-
-
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -48,14 +39,16 @@ public:
     //
 
 //-------------------------------------------- Constructeurs - destructeur
-
-
-    TrajetCompose (ListeTrajet trajetsListe,const char *villeDep,const char *villeArr);
+    TrajetCompose (ListeTrajet & trajetsListe,const char *villeDep,const char *villeArr);
     // Mode d'emploi :
     //
     // Contrat :
     //
-    void Afficher();
+    void Afficher( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
     virtual ~TrajetCompose ( );
     // Mode d'emploi :

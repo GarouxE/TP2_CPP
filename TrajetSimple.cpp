@@ -32,8 +32,7 @@ void TrajetSimple::Afficher ()
 #ifdef MAP
     cout << "Appel a afficher de <TrajetSimple>" << endl;
 #endif
-    cout << "de "<< depart << " à "<< arrive<< " en "<< Transport[(int)mode]<< endl;
-
+    cout << "de "<< depart << " a "<< arrive<< " en "<< Transport[(int)mode];
 }
 
 //-------------------------------------------- Constructeurs - destructeur

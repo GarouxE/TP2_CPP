@@ -24,7 +24,7 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 void Trajet::Afficher ( )
-{
+{   
     if (type) printf("Trajet compose de %s a %s\r\n", depart, arrive);
     else printf("Trajet simple de %s a %s\r\n", depart, arrive);
 } //----- Fin de Méthode
@@ -42,8 +42,8 @@ Trajet::Trajet (const char *villeDep, const char *villeArr, TypeTrajet typeTraje
 #ifdef MAP
     cout << "Appel au constructeur de <Trajet>" << endl;
 #endif
-    depart = new char (strlen(villeDep) + 1);
-    arrive = new char (strlen(villeArr) + 1);
+    depart = new char [strlen(villeDep) + 1];
+    arrive = new char [strlen(villeArr) + 1];
     strcpy(depart, villeDep);
     strcpy(arrive, villeArr);
     type = typeTrajet;

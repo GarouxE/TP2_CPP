@@ -24,7 +24,7 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void ListeTrajet::Afficher( ) {
     Element *current = tete;
-    while (current != NULL) {
+    while (current != nullptr) {
         current->Afficher();
         current = current->GetElementSuivant();
     }
@@ -58,7 +58,7 @@ ListeTrajet::ListeTrajet ( )
 #ifdef MAP
     cout << "Appel au constructeur de <ListeTrajet>" << endl;
 #endif
-    tete = NULL;
+    tete = nullptr;
     taille = 0;
 } //----- Fin de ListeTrajet
 
@@ -71,7 +71,7 @@ ListeTrajet::~ListeTrajet ( )
     cout << "Appel au destructeur de <ListeTrajet>" << endl;
 #endif
     Element *current = tete;
-    while (current != NULL) {
+    while (current != nullptr) {
         current = current->GetElementSuivant();
         delete current;
     }

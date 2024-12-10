@@ -27,7 +27,7 @@ void Element::Afficher ( )
     cout << "Trajet : ";
     trajet->Afficher();
     cout << "Trajet suivant : ";
-    if (eSuivant == NULL) cout << "Pas de trajet suivant" << "\r\n";
+    if (eSuivant == nullptr) cout << "Pas de trajet suivant" << "\r\n";
     else {
         eSuivant->trajet->Afficher();
     }
@@ -63,7 +63,7 @@ Element::Element (Trajet *unTrajet)
     cout << "Appel au constructeur de <Element>" << endl;
 #endif
     trajet = unTrajet;
-    eSuivant = NULL;
+    eSuivant = nullptr;
 } //----- Fin de Element
 
 

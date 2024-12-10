@@ -22,29 +22,31 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type TrajetCompose::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-
-
-
-
-//-------------------------------------------- Constructeurs - destructeur
-TrajetCompose::TrajetCompose ( ListeTrajet trajetsListe,const char *villeDep,const char *villeArr ):Trajet(villeDep, villeArr)
+void TrajetCompose::Afficher ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <TrajetCompose>" << endl;
+    cout << "Appel au destructeur de <TrajetCompose>" << endl;
 #endif
+//On a deux cas ici : 
+//1. Trajet de Element est un TrajetSimple 
+//2. Trajet de Element est un TrajetCompose
+//Donc il faudra un "if" : parcour->trajet->type pour voir quel type qu'il est.
+//S'il est du type TrajetSimple, on fait appel à la fonction Afficher du TrajetSimple.
+//S'il est du type TrajetCompose, on fait appel à la fonction Afficher du TrajetCompose.
+//Sachant que les deux fonctions ayant le même nom donc on ne va pas faire apparaitre les deux cas.
+    Element* parcour = trajets.GetTete();
+    for(int i = 0; i < trajets.GetTaille(); i++) {
+        if (i) cout << " - ";
+        (parcour->GetTrajet())->Afficher();
+        parcour = parcour->GetElementSuivant();
+    }
+} //----- Fin de Méthode
 
-      trajets = trajetsListe;
-} //----- Fin de TrajetCompose (constructeur de copie)
 
-
-TrajetCompose::TrajetCompose (ListeTrajet trajetsListe,const char *villeDep,const char *villeArr):Trajet(villeDep,villeArr,COMPOSE)
+//-------------------------------------------- Constructeurs - destructeur
+TrajetCompose::TrajetCompose (ListeTrajet & trajetsListe, const char *villeDep, const char *villeArr):Trajet(villeDep,villeArr,COMPOSE)
 // Algorithme :
 //
 {
@@ -58,33 +60,9 @@ TrajetCompose::TrajetCompose (ListeTrajet trajetsListe,const char *villeDep,cons
     //------------------------------------------
     //------------------------------------------
     //------------------------------------------
-
     trajets = trajetsListe;
 
 } //----- Fin de TrajetCompose
-
-
-
-void TrajetCompose::Afficher ( )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au destructeur de <TrajetCompose>" << endl;
-#endif
-
-      Element* parcour = trajets.GetTete();
-      for(int i = 0; i < trajets.GetTaille(); i++)
-      {
-        if(i)cout << " - ";
-        (parcour->GetTrajet())->Afficher();
-        parcour = (*parcour).GetElementSuivant();
-      }
-} //----- Fin de ~TrajetCompose
-
-
-
-
 
 TrajetCompose::~TrajetCompose ( )
 // Algorithme :
