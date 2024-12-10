@@ -30,7 +30,7 @@ class Catalogue
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    void Afficher();
     // Mode d'emploi :
     //
     // Contrat :
@@ -39,14 +39,6 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Catalogue (ListeTrajet trajetsListe);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-
-
-    void Afficher();
     // Mode d'emploi :
     //
     // Contrat :

@@ -23,33 +23,6 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Catalogue::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-
-
-//------------------------------------------------- Surcharge d'opérateurs
-
-
-
-//-------------------------------------------- Constructeurs - destructeur
-
-
-Catalogue::Catalogue ( ListeTrajet trajetsListe)
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de <Catalogue>" << endl;
-#endif
-  voyages = trajetsListe;
-} //----- Fin de Catalogue
-
-
-
-
 void Catalogue::Afficher()
 // Algorithme :
 //
@@ -71,6 +44,18 @@ void Catalogue::Afficher()
       }
 
 }
+
+//-------------------------------------------- Constructeurs - destructeur
+Catalogue::Catalogue ( ListeTrajet trajetsListe)
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <Catalogue>" << endl;
+#endif
+  voyages = trajetsListe;
+} //----- Fin de Catalogue
+
 
 Catalogue::~Catalogue ( )
 // Algorithme :
