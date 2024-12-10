@@ -26,8 +26,8 @@ void Element::Afficher ( )
 {
     cout << "Trajet : ";
     trajet->Afficher();
-    cout << "Trajet suivant : ";
-    if (eSuivant == nullptr) cout << "Pas de trajet suivant" << "\r\n";
+    cout << "\nTrajet suivant : ";
+    if (eSuivant == NULL) cout << "Pas de trajet suivant" << "\r\n";
     else {
         eSuivant->trajet->Afficher();
     }
@@ -74,11 +74,10 @@ Element::~Element ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Element>" << endl;
 #endif
-    delete trajet;
+
 } //----- Fin de ~Element
 
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-

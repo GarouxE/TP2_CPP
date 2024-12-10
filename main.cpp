@@ -1,13 +1,15 @@
-//------------------------------------------------------ Include personnel
 #include <iostream>
 #include "Trajet.h"
 #include "TrajetCompose.h"
 #include "Element.h"
 #include "TrajetSimple.h"
 #include "ListeTrajet.h"
+#include "TrajetCompose.h"
+#include "Catalogue.h"
+
 using namespace std;
 
-int main() 
+int main()
 {
     //Créer un trajet simple :
     TrajetSimple trajetS("D", "A", AVION);
