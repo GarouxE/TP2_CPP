@@ -34,15 +34,29 @@ public:
 //----------------------------------------------------- Méthodes publiques
     virtual void Afficher ( );
     // Mode d'emploi :
-    
+    //
     // Contrat :
+    //
     
-
-    Trajet (const char *villeDep, const char *villeArr, TypeTrajet typeTrajet);
+    char *GetDepart ( );
     // Mode d'emploi :
     //
     // Contrat :
-    //);
+    //
+
+    char *GetArrive ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    TypeTrajet GetType ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    Trajet (const char *villeDep, const char *villeArr, TypeTrajet typeTrajet);
     // Mode d'emploi :
     //
     // Contrat :

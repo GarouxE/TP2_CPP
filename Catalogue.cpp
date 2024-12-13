@@ -13,7 +13,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-
+#include <cstring>
 //------------------------------------------------------ Include personnel
 #include "Catalogue.h"
 
@@ -23,30 +23,67 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-void Catalogue::Afficher()
+void Catalogue::Afficher ( )
 // Algorithme :
 //
 {
-#ifdef MAP
-    cout << "Appel au constructeur de <Catalogue>" << endl;
-#endif
+  Element* parcour = voyages.GetTete();
+  int taille = voyages.GetTaille();
 
-      Element* parcour = voyages.GetTete();
-      int taille = voyages.GetTaille();
-      for(int i = 0; i < taille; i++)
-      {
-        cout<<"Voyage N°"<<i+1<<": " ;
-        Trajet * trajet = parcour->GetTrajet();
-        trajet->Afficher();
-        cout<<" "<<endl;
-        parcour = parcour-> GetElementSuivant();
+  int s = 0, c = 0;
+  for(int i = 0; i < taille; i++)
+  {
+    Trajet * trajet = parcour->GetTrajet();
+    if (trajet->GetType() == SIMPLE) { //je modifie ici pour qu'il affiche comme l'exemple
+      cout<<"Voyage "<<i+1<<" : "<< "TS" << ++s << " = ";
+    } else {
+      cout<<"Voyage "<<i+1<<" : "<< "TC" << ++c << " = ";
+    }
 
+    trajet->Afficher();
+    cout<<" "<<endl;
+    parcour = parcour-> GetElementSuivant();
+  }
+}
+
+
+void Catalogue::RecherSimple ( const char *dep, const char *arr ) 
+// Algorithme :
+//
+{
+  Element* parcour = voyages.GetTete();
+  int taille = voyages.GetTaille();
+
+  int s = 0, c = 0;
+  for(int i = 0; i < taille; i++)
+  {
+    Trajet * trajet = parcour->GetTrajet();
+
+    int type;
+    if (trajet->GetType() == SIMPLE) {
+      type = 1;
+      ++s;
+    } else {
+      type = 0;
+      ++c;
+    }
+    
+    if ( (strcmp(trajet->GetDepart(), dep) == 0) && (strcmp(trajet->GetArrive(), arr) == 0) ) {
+      if (type) {
+        cout<<"Voyage "<<i+1<<" : "<< "TS" << s << " = ";
+      } else {
+        cout<<"Voyage "<<i+1<<" : "<< "TC" << c << " = ";
       }
 
+      trajet->Afficher();
+      cout<<" "<<endl;
+    }
+    parcour = parcour-> GetElementSuivant();
+  }  
 }
 
 //-------------------------------------------- Constructeurs - destructeur
-Catalogue::Catalogue ( ListeTrajet trajetsListe)
+Catalogue::Catalogue ( ListeTrajet & trajetsListe )
 // Algorithme :
 //
 {

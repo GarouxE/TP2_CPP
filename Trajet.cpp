@@ -14,10 +14,8 @@
 using namespace std;
 #include <iostream>
 #include <cstring>
-
 //------------------------------------------------------ Include personnel
 #include "Trajet.h"
-
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
@@ -29,6 +27,17 @@ void Trajet::Afficher ( )
     else printf("Trajet simple de %s a %s\r\n", depart, arrive);
 } //----- Fin de Méthode
 
+char *Trajet::GetDepart ( ) {
+    return depart;
+} //----- Fin de Méthode
+
+char *Trajet::GetArrive ( ) {
+    return arrive;
+} //----- Fin de Méthode
+
+TypeTrajet Trajet::GetType ( ) {
+    return type;
+} //----- Fin de Méthode
 
 //------------------------------------------------- Surcharge d'opérateurs
 

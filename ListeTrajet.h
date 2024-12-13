@@ -39,11 +39,15 @@ public:
     //
     // Contrat :
     //
+
+    void AjouterEnQueue (Element *unElement);
+
     Element *GetTete ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
+
     int GetTaille ( );
     // Mode d'emploi :
     //

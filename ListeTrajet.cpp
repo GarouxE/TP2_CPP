@@ -38,6 +38,23 @@ void ListeTrajet::AjouterEnTete (Element *unElement)
     taille++;
 } //----- Fin de Méthode
 
+void ListeTrajet::AjouterEnQueue (Element *unElement)
+{
+    unElement->SetElementSuivant(nullptr);
+    if (!taille) tete = unElement;
+    else {
+        Element *parcour = tete;
+        while (1) {
+            if (parcour->GetElementSuivant() == nullptr) {
+                parcour->SetElementSuivant(unElement);
+                break;
+            }
+            parcour = parcour->GetElementSuivant();
+        }
+    }
+    taille++;
+} //----- Fin de Méthode
+
 Element * ListeTrajet::GetTete ( )
 {
     return tete;

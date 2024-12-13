@@ -12,8 +12,9 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
+#include "TrajetSimple.h"
+#include "TrajetCompose.h"
 #include "ListeTrajet.h"
-#include "Element.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -30,7 +31,13 @@ class Catalogue
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void Afficher();
+    void Afficher ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    void RecherSimple ( const char *dep, const char *arr );
     // Mode d'emploi :
     //
     // Contrat :
@@ -38,7 +45,7 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Catalogue (ListeTrajet trajetsListe);
+    Catalogue (ListeTrajet & trajetsListe );
     // Mode d'emploi :
     //
     // Contrat :
