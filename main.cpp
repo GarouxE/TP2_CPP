@@ -52,7 +52,7 @@ int main()
 }
 
 void menu() {
-    cout << "1. Ajoute d'un trajet simple" << endl; //On peux juste faire une fonction ajoute d'un trajet ?
+    cout << "1. Ajoute d'un trajet simple" << endl;
     cout << "2. Ajoute d'un trajet composé" << endl;
     cout << "3. Affichage du catalogue" << endl;
     cout << "4. Recherche simple d'un trajet" << endl;
