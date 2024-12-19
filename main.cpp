@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int main()
+int test()
 {
     //Créer un trajet simple :
     TrajetSimple trajetS("D", "A", AVION);
