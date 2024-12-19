@@ -34,12 +34,6 @@ public:
     // Contrat :
     //
 
-    void AjouterEnTete (Element *unElement);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
     void AjouterEnQueue (Element *unElement);
 
     Element *GetTete ( );

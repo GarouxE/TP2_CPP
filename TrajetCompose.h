@@ -11,8 +11,6 @@
 #define TRAJETCOMPOSE_H
 
 
-
-
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
 #include "ListeTrajet.h"
@@ -32,7 +30,7 @@ class TrajetCompose : public Trajet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    void Afficher( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -40,11 +38,6 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     TrajetCompose (ListeTrajet & trajetsListe,const char *villeDep,const char *villeArr);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    void Afficher( );
     // Mode d'emploi :
     //
     // Contrat :

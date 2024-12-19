@@ -37,9 +37,10 @@ void TrajetCompose::Afficher ( )
 //S'il est du type TrajetCompose, on fait appel à la fonction Afficher du TrajetCompose.
 //Sachant que les deux fonctions ayant le même nom donc on ne va pas faire apparaitre les deux cas.
     Element* parcour = trajets.GetTete();
-    for(int i = 0; i < trajets.GetTaille(); i++) {
+
+    for (int i = 0; i < trajets.GetTaille(); i++) {
         if (i) cout << " - ";
-        (parcour->GetTrajet())->Afficher();
+        parcour->GetTrajet()->Afficher();
         parcour = parcour->GetElementSuivant();
     }
 } //----- Fin de Méthode

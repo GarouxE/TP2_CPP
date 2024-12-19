@@ -38,13 +38,13 @@ public:
     // Contrat :
     //
     
-    char *GetDepart ( );
+    char * & GetDepart ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    char *GetArrive ( );
+    char * & GetArrive ( );
     // Mode d'emploi :
     //
     // Contrat :

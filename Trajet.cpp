@@ -27,11 +27,11 @@ void Trajet::Afficher ( )
     else printf("Trajet simple de %s a %s\r\n", depart, arrive);
 } //----- Fin de Méthode
 
-char *Trajet::GetDepart ( ) {
+char * & Trajet::GetDepart ( ) {
     return depart;
 } //----- Fin de Méthode
 
-char *Trajet::GetArrive ( ) {
+char * & Trajet::GetArrive ( ) {
     return arrive;
 } //----- Fin de Méthode
 

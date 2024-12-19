@@ -1,8 +1,11 @@
-main: main.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o
-	g++ -o main main.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o 
+main: main.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o Catalogue.o
+	g++ -o main main.o Catalogue.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o 
 
 main.o: main.cpp
 	g++ -c main.cpp
+
+Catalogue.o: Catalogue.cpp
+	g++ -c Catalogue.cpp
 
 Trajet.o: Trajet.cpp
 	g++ -c Trajet.cpp

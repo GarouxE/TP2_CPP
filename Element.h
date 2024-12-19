@@ -34,13 +34,13 @@ public:
     // Contrat :
     //
 
-    Trajet *GetTrajet ( );
+    Trajet * GetTrajet ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    Element *GetElementSuivant ( );
+    Element * GetElementSuivant ( );
     // Mode d'emploi :
     //
     // Contrat :

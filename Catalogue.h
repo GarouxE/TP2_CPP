@@ -42,7 +42,12 @@ public:
     //
     // Contrat :
     //
-
+    
+    ListeTrajet & GetListeTrajet();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 //-------------------------------------------- Constructeurs - destructeur
     Catalogue (ListeTrajet & trajetsListe );

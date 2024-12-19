@@ -31,19 +31,12 @@ void ListeTrajet::Afficher( ) {
     cout << "\nTaille actuelle de la liste : " << taille << "\r\n";
 } //----- Fin de Méthode
 
-void ListeTrajet::AjouterEnTete (Element *unElement)
-{
-    unElement->SetElementSuivant(tete);
-    tete = unElement;
-    taille++;
-} //----- Fin de Méthode
-
-void ListeTrajet::AjouterEnQueue (Element *unElement)
+void ListeTrajet::AjouterEnQueue (Element * unElement)
 {
     unElement->SetElementSuivant(nullptr);
     if (!taille) tete = unElement;
     else {
-        Element *parcour = tete;
+        Element * parcour = tete;
         while (1) {
             if (parcour->GetElementSuivant() == nullptr) {
                 parcour->SetElementSuivant(unElement);
@@ -52,7 +45,7 @@ void ListeTrajet::AjouterEnQueue (Element *unElement)
             parcour = parcour->GetElementSuivant();
         }
     }
-    taille++;
+    ++taille;
 } //----- Fin de Méthode
 
 Element * ListeTrajet::GetTete ( )

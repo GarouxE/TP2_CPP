@@ -28,20 +28,25 @@ void Catalogue::Afficher ( )
 //
 {
   Element* parcour = voyages.GetTete();
+  if (parcour == nullptr) {
+    cout << "Catalogue vide.\r\n" << endl;
+    return;
+  }
+
   int taille = voyages.GetTaille();
 
   int s = 0, c = 0;
-  for(int i = 0; i < taille; i++)
+  for(int i = 0; i < taille; ++i)
   {
     Trajet * trajet = parcour->GetTrajet();
-    if (trajet->GetType() == SIMPLE) { //je modifie ici pour qu'il affiche comme l'exemple
-      cout<<"Voyage "<<i+1<<" : "<< "TS" << ++s << " = ";
+    if (trajet->GetType() == SIMPLE) {
+      cout << "Voyage " << i+1 << " : " << "TS" << ++s << " = ";
     } else {
-      cout<<"Voyage "<<i+1<<" : "<< "TC" << ++c << " = ";
+      cout << "Voyage " << i+1 << " : " << "TC" << ++c << " = ";
     }
 
     trajet->Afficher();
-    cout<<" "<<endl;
+    cout << endl;
     parcour = parcour-> GetElementSuivant();
   }
 }
@@ -52,6 +57,11 @@ void Catalogue::RecherSimple ( const char *dep, const char *arr )
 //
 {
   Element* parcour = voyages.GetTete();
+  if (parcour == nullptr) {
+    cout << "Catalogue vide.\r\n" << endl;
+    return;
+  }
+
   int taille = voyages.GetTaille();
 
   int s = 0, c = 0;
@@ -59,27 +69,31 @@ void Catalogue::RecherSimple ( const char *dep, const char *arr )
   {
     Trajet * trajet = parcour->GetTrajet();
 
-    int type;
-    if (trajet->GetType() == SIMPLE) {
-      type = 1;
-      ++s;
-    } else {
-      type = 0;
-      ++c;
-    }
-    
-    if ( (strcmp(trajet->GetDepart(), dep) == 0) && (strcmp(trajet->GetArrive(), arr) == 0) ) {
-      if (type) {
+    if (trajet->GetType() == SIMPLE) ++s;
+    else ++c;
+
+    if ( strcmp(trajet->GetDepart(), dep) == 0 && strcmp(trajet->GetArrive(), arr) == 0 ) {
+      if (trajet->GetType() == SIMPLE) {
         cout<<"Voyage "<<i+1<<" : "<< "TS" << s << " = ";
       } else {
         cout<<"Voyage "<<i+1<<" : "<< "TC" << c << " = ";
       }
 
       trajet->Afficher();
-      cout<<" "<<endl;
+      cout << endl;
+      return;
     }
-    parcour = parcour-> GetElementSuivant();
+    parcour = parcour->GetElementSuivant();
   }  
+  cout << "Aucun trajet trouve.\r\n" << endl;
+  return;
+}
+
+ListeTrajet & Catalogue::GetListeTrajet()
+// Algorithme :
+//
+{
+  return voyages;
 }
 
 //-------------------------------------------- Constructeurs - destructeur
