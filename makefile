@@ -3,6 +3,11 @@ COMPIL = g++
 EDL = g++
 OPTIONS = -ansi -pedantic -Wall -std=c++11
 
+# Ajout de l'option MAP si définie
+ifdef MAP
+	OPTIONS += -DMAP
+endif
+
 #Compilation du programme principal
 
 trajets: main.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o Catalogue.o
