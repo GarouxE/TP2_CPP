@@ -5,8 +5,8 @@ OPTIONS = -ansi -pedantic -Wall -std=c++11
 
 #Compilation du programme principal
 
-main: main.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o Catalogue.o
-	$(EDL) $(OPTIONS) -o main main.o Catalogue.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o 
+trajets: main.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o Catalogue.o
+	$(EDL) $(OPTIONS) -o trajets main.o Catalogue.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o 
 
 
 # Ajout de l'option MAP si définie
