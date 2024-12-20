@@ -34,24 +34,24 @@ class TrajetSimple : public Trajet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
-    // Mode d'emploi :
+    void Afficher();
+    // Mode d'emploi : la fonction affiche le trajet simple (donc le depart, l'arrivee et le moyen de transport)
     //
-    // Contrat :
+    // Contrat : aucun
     //
+
+//-------------------------------------------- Constructeurs - destructeur
 
     TrajetSimple (const char *villeDep, const char *villeArr, ModeTransport modeTransport);
-    // Mode d'emploi :
+    // Mode d'emploi : la fonction est un constructeur de TrajetSimple
     //
-    // Contrat :
+    // Contrat : villeDep et villeArr sont des villes différentes
     //
-
-    void Afficher();
 
     virtual ~TrajetSimple ( );
-    // Mode d'emploi :
+    // Mode d'emploi : la fonction est un destructeur de TrajetSimple
     //
-    // Contrat :
+    // Contrat : aucun
     //
 
 //------------------------------------------------------------------ PRIVE

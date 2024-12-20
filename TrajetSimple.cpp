@@ -26,7 +26,7 @@ const char* Transport[] = { "BATEAU", "AUTO", "TRAIN", "AVION"};
 //----------------------------------------------------- Méthodes publiques
 
 void TrajetSimple::Afficher ()
-// Algorithme :
+// Algorithme : aficher le trajet simple (donc le depart, l'arrivee et le moyen de transport)
 //
 {
 #ifdef MAP
@@ -38,7 +38,7 @@ void TrajetSimple::Afficher ()
 //-------------------------------------------- Constructeurs - destructeur
 
 TrajetSimple::TrajetSimple (const char *villeDep, const char *villeArr, ModeTransport modeTransport):Trajet(villeDep, villeArr,SIMPLE)
-// Algorithme :
+// Algorithme : initialiser le trajet simple avec le depart, l'arrivee et le moyen de transport
 //
 {
 #ifdef MAP
@@ -50,7 +50,7 @@ TrajetSimple::TrajetSimple (const char *villeDep, const char *villeArr, ModeTran
 
 
 TrajetSimple::~TrajetSimple()
-// Algorithme :
+// Algorithme : detruire le trajet simple
 //
 {
 #ifdef MAP

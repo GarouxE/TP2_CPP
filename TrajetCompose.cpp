@@ -23,19 +23,15 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 void TrajetCompose::Afficher ( )
-// Algorithme :
+// Algorithme : utiliser un parcour pour parcourir la liste de trajets et afficher chaque trajet
+//S'il est du type TrajetSimple, on fait appel à la fonction Afficher du TrajetSimple.
+//S'il est du type TrajetCompose, on fait appel à la fonction Afficher du TrajetCompose.
+//Sachant que les deux fonctions ayant le même nom donc on ne va pas faire apparaitre les deux cas.
 //
 {
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetCompose>" << endl;
 #endif
-//On a deux cas ici : 
-//1. Trajet de Element est un TrajetSimple 
-//2. Trajet de Element est un TrajetCompose
-//Donc il faudra un "if" : parcour->trajet->type pour voir quel type qu'il est.
-//S'il est du type TrajetSimple, on fait appel à la fonction Afficher du TrajetSimple.
-//S'il est du type TrajetCompose, on fait appel à la fonction Afficher du TrajetCompose.
-//Sachant que les deux fonctions ayant le même nom donc on ne va pas faire apparaitre les deux cas.
     Element* parcour = trajets.GetTete();
 
     for (int i = 0; i < trajets.GetTaille(); i++) {
@@ -48,25 +44,18 @@ void TrajetCompose::Afficher ( )
 
 //-------------------------------------------- Constructeurs - destructeur
 TrajetCompose::TrajetCompose (ListeTrajet & trajetsListe, const char *villeDep, const char *villeArr):Trajet(villeDep,villeArr,COMPOSE)
-// Algorithme :
+// Algorithme : initialiser le trajet compose avec la liste de trajets simples et composes qui le composent
 //
 {
 #ifdef MAP
     cout << "Appel au constructeur de <TrajetCompose>" << endl;
 #endif
-    //verification des villes a faire _______________________________________________________________________________________________________________________________________
-    //------------------------------------------
-    //------------------------------------------
-    //------------------------------------------
-    //------------------------------------------
-    //------------------------------------------
-    //------------------------------------------
     trajets = trajetsListe;
 
 } //----- Fin de TrajetCompose
 
 TrajetCompose::~TrajetCompose ( )
-// Algorithme :
+// Algorithme : detruire le trajet compose
 //
 {
 #ifdef MAP

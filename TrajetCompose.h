@@ -31,22 +31,22 @@ class TrajetCompose : public Trajet
 public:
 //----------------------------------------------------- Méthodes publiques
     void Afficher( );
-    // Mode d'emploi :
+    // Mode d'emploi : la fonction affiche le trajet compose (donc les trajets simples et les trajets composes qui le composent)
     //
-    // Contrat :
+    // Contrat : aucun
     //
 
 //-------------------------------------------- Constructeurs - destructeur
-    TrajetCompose (ListeTrajet & trajetsListe,const char *villeDep,const char *villeArr);
-    // Mode d'emploi :
+    TrajetCompose ( ListeTrajet & trajetsListe, const char *villeDep, const char *villeArr );
+    // Mode d'emploi : la fonction est un constructeur de TrajetCompose
     //
-    // Contrat :
+    // Contrat : villeDep et villeArr sont des villes différentes
     //
 
     virtual ~TrajetCompose ( );
-    // Mode d'emploi :
+    // Mode d'emploi : la fonction est un destructeur de TrajetCompose
     //
-    // Contrat :
+    // Contrat : aucun
     //
 
 //------------------------------------------------------------------ PRIVE

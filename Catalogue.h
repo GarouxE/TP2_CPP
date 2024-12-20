@@ -32,34 +32,34 @@ class Catalogue
 public:
 //----------------------------------------------------- Méthodes publiques
     void Afficher ( );
-    // Mode d'emploi :
+    // Mode d'emploi : la fonction affiche la liste de trajets du catalogue
     //
-    // Contrat :
+    // Contrat :  aucun
     //
 
     void RecherSimple ( const char *dep, const char *arr );
-    // Mode d'emploi :
+    // Mode d'emploi :  la fonction recherche un trajet simple dans le catalogue
     //
-    // Contrat :
+    // Contrat :  dep et arr sont des villes différentes
     //
     
     ListeTrajet & GetListeTrajet();
-    // Mode d'emploi :
+    // Mode d'emploi : la fonction retourne la liste de trajets du catalogue
     //
-    // Contrat :
+    // Contrat : aucun
     //
 
 //-------------------------------------------- Constructeurs - destructeur
     Catalogue (ListeTrajet & trajetsListe );
-    // Mode d'emploi :
+    // Mode d'emploi : la fonction est un constructeur de Catalogue
     //
-    // Contrat :
+    // Contrat : aucun
     //
 
     virtual ~Catalogue ( );
-    // Mode d'emploi :
+    // Mode d'emploi : la fonction est un destructeur de Catalogue
     //
-    // Contrat :
+    // Contrat : aucun
     //
 
 //------------------------------------------------------------------ PRIVE
