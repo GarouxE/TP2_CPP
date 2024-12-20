@@ -1,5 +1,5 @@
 /*************************************************************************
-                           TrajetSimple  -  description
+                           TrajetSimple - une classe qui permet de representer un trajet simple
                              -------------------
     début                : 21/11
     copyright            : (C) 2024 par Ewan GAROUX et Anh Hung NGO

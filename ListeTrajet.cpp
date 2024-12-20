@@ -1,5 +1,5 @@
 /*************************************************************************
-                           ListeTrajet  -  description
+                           ListeTrajet  -  une classe qui permet de construire une liste chainée et de manipuler ses elements
                              -------------------
     début                : 21/11
     copyright            : (C) 2024 par Ewan GAROUX et Anh Hung NGO

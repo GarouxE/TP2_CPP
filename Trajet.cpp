@@ -1,5 +1,5 @@
 /*************************************************************************
-                           Trajet  -  description
+                           Trajet  -  une classe qui permet de representer un trajet
                              -------------------
     début                : 21/11
     copyright            : (C) 2024 par Ewan GAROUX et Anh Hung NGO

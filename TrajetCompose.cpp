@@ -1,5 +1,6 @@
 /*************************************************************************
-                           TrajetCompose  -  description
+                            TrajetCompose  -  une classe qui permet de representer un trajet compose 
+                            donc un trajet qui est compose de plusieurs trajets simples et composes
                              -------------------
     début                : 21/11
     copyright            : (C) 2024 par Ewan GAROUX et Anh Hung NGO

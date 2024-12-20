@@ -1,6 +1,6 @@
 /*************************************************************************
-                           Catalogue  -  description
-                             -------------------
+                          Catalogue  -  une classe de catalogue de trajets qui a pour but de 
+                          manipuler et repésenter une liste de trajets
     début                : 21/11
     copyright            : (C) 2024 par Ewan GAROUX et Anh Hung NGO
     e-mail               : <ewan.garoux@insa-lyon.fr> ou <anh-hung.ngo@insa-lyon.fr>

@@ -1,5 +1,5 @@
 /*************************************************************************
-                           Element  -  description
+                           Element  -  une classe qui permet de representer un element d'une liste chainee
                              -------------------
     début                : 21/11
     copyright            : (C) 2024 par Ewan GAROUX et Anh Hung NGO
