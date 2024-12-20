@@ -21,7 +21,7 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Catalogue>
-//
+// Le catalogue permet d'acceder a une liste de trajets.
 //
 //------------------------------------------------------------------------
 
@@ -33,9 +33,9 @@ public:
 //----------------------------------------------------- Méthodes publiques
     void Afficher ( );
     // Mode d'emploi :
-    //
+    // La methode affiche les differents trajets possibles.
     // Contrat :
-    //
+    // --
 
     void RecherSimple ( const char *dep, const char *arr );
     // Mode d'emploi :
@@ -45,20 +45,20 @@ public:
     
     ListeTrajet & GetListeTrajet();
     // Mode d'emploi :
-    //
+    //Permet d'obtenir la Liste des Trajets du catalogue 
     // Contrat :
-    //
+    //--
 
 //-------------------------------------------- Constructeurs - destructeur
     Catalogue (ListeTrajet & trajetsListe );
     // Mode d'emploi :
-    //
+    // Creer un catalogue a partie d'une liste de trajets
     // Contrat :
     //
 
     virtual ~Catalogue ( );
     // Mode d'emploi :
-    //
+    // Destructeur de catalogue
     // Contrat :
     //
 
