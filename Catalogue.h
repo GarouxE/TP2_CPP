@@ -22,7 +22,7 @@
 //------------------------------------------------------------------------
 // Rôle de la classe <Catalogue>
 // Le catalogue permet d'acceder a une liste de trajets.
-//
+//l permet aussi d'effectuer une recherche simple des trajets allant d'une ville A a B
 //------------------------------------------------------------------------
 
 class Catalogue
@@ -39,7 +39,7 @@ public:
 
     void RecherSimple ( const char *dep, const char *arr );
     // Mode d'emploi :
-    //
+    // Affiche les trajets de la liste de trajets qui partent de dep et qui arrivent a arr.
     // Contrat :
     //
     
