@@ -21,8 +21,8 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Catalogue>
-//
-//
+// Le catalogue permet d'acceder a une liste de trajets.
+//l permet aussi d'effectuer une recherche simple des trajets allant d'une ville A a B
 //------------------------------------------------------------------------
 
 class Catalogue

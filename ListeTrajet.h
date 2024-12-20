@@ -18,7 +18,7 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <ListeTrajet>
-//
+//C'est une classe permettant de construire une liste chainée et de manipuler ses elements.
 //
 //------------------------------------------------------------------------
 
@@ -30,21 +30,25 @@ public:
 //----------------------------------------------------- Méthodes publiques
     void Afficher ( );
     // Mode d'emploi :
-    //
+    //Affiche tous les elements de la liste chainée.
     // Contrat :
     //
 
     void AjouterEnQueue (Element *unElement);
+    // Mode d'emploi :
+    // Permet d'ajoute un element en fin de la liste chainée.
+    // Contrat :
+    //
 
     Element *GetTete ( );
     // Mode d'emploi :
-    //
+    //Renvoie l'element en tet de la liste chainée.
     // Contrat :
     //
 
     int GetTaille ( );
     // Mode d'emploi :
-    //
+    //Renvoi le nombre d'element dans la liste chainée.
     // Contrat :
     //
 
