@@ -1,9 +1,9 @@
 /*************************************************************************
                            ListeTrajet  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $2024$ par $AUTHOR$
-    e-mail               : $anh-hung.ngo@insa-lyon.fr$
+    début                : 21/11
+    copyright            : (C) 2024 par Ewan GAROUX et Anh Hung NGO
+    e-mail               : <ewan.garoux@insa-lyon.fr> ou <anh-hung.ngo@insa-lyon.fr>
 *************************************************************************/
 
 //---------- Réalisation de la classe <ListeTrajet> (fichier ListeTrajet.cpp) ------------

@@ -1,9 +1,9 @@
 /*************************************************************************
                            ListeTrajet  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 21/11
+    copyright            : (C) 2024 par Ewan GAROUX et Anh Hung NGO
+    e-mail               : <ewan.garoux@insa-lyon.fr> ou <anh-hung.ngo@insa-lyon.fr>
 *************************************************************************/
 
 //---------- Interface de la classe <ListeTrajet> (fichier ListeTrajet.h) ----------------

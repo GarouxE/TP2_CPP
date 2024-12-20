@@ -1,9 +1,9 @@
 /*************************************************************************
-                           Menu  -  main
+                           Main  -  main
                              -------------------
-    début                : //2024
-    copyright            : (C) 
-    e-mail               : $EMAIL$
+    début                : 21/11
+    copyright            : (C) 2024 par Ewan GAROUX et Anh Hung NGO
+    e-mail               : <ewan.garoux@insa-lyon.fr> ou <anh-hung.ngo@insa-lyon.fr>
 *************************************************************************/
 
 //-------------------------------------------------------- Include système

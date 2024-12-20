@@ -1,23 +1,45 @@
+#Variables
+COMPIL = g++
+EDL = g++
+OPTIONS = -ansi -pedantic -Wall -std=c++11
+
+#Compilation du programme principal
+
 main: main.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o Catalogue.o
-	g++ -o main main.o Catalogue.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o 
+	$(EDL) $(OPTIONS) -o main main.o Catalogue.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o 
 
-main.o: main.cpp
-	g++ -c main.cpp
 
-Catalogue.o: Catalogue.cpp
-	g++ -c Catalogue.cpp
+# Ajout de l'option MAP si définie
+ifdef MAP
+OPTIONS += -DMAP
+endif
 
-Trajet.o: Trajet.cpp
-	g++ -c Trajet.cpp
+#Compilation des fichiers source
 
-TrajetSimple.o: TrajetSimple.cpp
-	g++ -c TrajetSimple.cpp
+main.o: main.cpp Catalogue.h
+	$(COMPIL) $(OPTIONS) -c main.cpp
 
-TrajetCompose.o: TrajetCompose.cpp
-	g++ -c TrajetCompose.cpp
+ListTrajet.o: ListTrajet.cpp ListTrajet.h Element.h
+	$(COMPIL) $(OPTIONS) -c ListTrajet.cpp
 
-Element.o: Element.cpp
-	g++ -c Element.cpp
+Element.o: Element.cpp Element.h Trajet.h
+	$(COMPIL) $(OPTIONS) -c Element.cpp
 
-ListeTrajet.o: ListeTrajet.cpp
-	g++ -c ListeTrajet.cpp
+Catalogue.o: Catalogue.cpp Catalogue.h TrajetCompose.h
+	$(COMPIL) $(OPTIONS) -c Catalogue.cpp
+
+Trajet.o: Trajet.cpp Trajet.h
+	$(COMPIL) $(OPTIONS) -c Trajet.cpp
+
+TrajetSimple.o: TrajetSimple.cpp TrajetSimple.h Trajet.h
+	$(COMPIL) $(OPTIONS) -c TrajetSimple.cpp
+
+TrajetCompose.o: TrajetCompose.cpp TrajetSimple.h
+	$(COMPIL) $(OPTIONS) -c TrajetCompose.cpp
+
+#Nettoyage
+clean:
+	rm -f *.o $(EXEC)
+
+valgrind: $(EXEC)
+	valgrind --leak-check=full ./$(EXEC)
