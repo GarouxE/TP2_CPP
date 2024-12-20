@@ -9,11 +9,6 @@ trajets: main.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o 
 	$(EDL) $(OPTIONS) -o trajets main.o Catalogue.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o 
 
 
-# Ajout de l'option MAP si définie
-ifdef MAP
-OPTIONS += -DMAP
-endif
-
 #Compilation des fichiers source
 
 main.o: main.cpp Catalogue.h
