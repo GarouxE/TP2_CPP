@@ -23,8 +23,8 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void Trajet::Afficher ( )
 {   
-    if (type) printf("Trajet compose de %s a %s\r\n", depart, arrive);
-    else printf("Trajet simple de %s a %s\r\n", depart, arrive);
+    if (type == COMPOSE) cout << "Trajet compose de " << depart << " a " << arrive << endl;
+    else if (type == SIMPLE) cout << "Trajet simple de " << depart << " a " << arrive << endl;
 } //----- Fin de Méthode
 
 char * & Trajet::GetDepart ( ) {
@@ -66,8 +66,8 @@ Trajet::~Trajet ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Trajet>" << endl;
 #endif
-    delete []depart;
-    delete []arrive;
+    delete [] depart;
+    delete [] arrive;
 } //----- Fin de ~Trajet
 
 

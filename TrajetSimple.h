@@ -40,8 +40,13 @@ public:
     // Contrat : aucun
     //
 
-//-------------------------------------------- Constructeurs - destructeur
+    ModeTransport & GetMode();
+    // Mode d'emploi : la fonction retourne le mode de transport
+    //
+    // Contrat : aucun
+    
 
+//-------------------------------------------- Constructeurs - destructeur
     TrajetSimple (const char *villeDep, const char *villeArr, ModeTransport modeTransport);
     // Mode d'emploi : la fonction est un constructeur de TrajetSimple
     //

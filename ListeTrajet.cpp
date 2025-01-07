@@ -33,7 +33,7 @@ void ListeTrajet::Afficher( ) {
 
 void ListeTrajet::AjouterEnQueue (Element * unElement)
 {
-    unElement->SetElementSuivant(nullptr);
+    unElement->SetElementSuivant();
     if (!taille) tete = unElement;
     else {
         Element * parcour = tete;
@@ -48,7 +48,7 @@ void ListeTrajet::AjouterEnQueue (Element * unElement)
     ++taille;
 } //----- Fin de Méthode
 
-Element * ListeTrajet::GetTete ( )
+Element * & ListeTrajet::GetTete ( )
 {
     return tete;
 } //----- Fin de Méthode
@@ -82,8 +82,9 @@ ListeTrajet::~ListeTrajet ( )
 #endif
     Element *current = tete;
     while (current != nullptr) {
+        Element *tmps = current;
         current = current->GetElementSuivant();
-        delete current;
+        delete tmps;
     }
 } //----- Fin de ~ListeTrajet
 

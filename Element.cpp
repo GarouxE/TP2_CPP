@@ -34,19 +34,25 @@ void Element::Afficher ( )
 
 } //----- Fin de Méthode
 
-Trajet * Element::GetTrajet ( )
+Trajet * & Element::GetTrajet ( )
 // Algorithme :
 {
     return trajet;
 } //----- Fin de Méthode
 
-Element * Element::GetElementSuivant ( )
+Element * & Element::GetElementSuivant ( )
 // Algorithme :
 {
     return eSuivant;
 } //----- Fin de Méthode
 
-void Element::SetElementSuivant ( Element *unElement )
+void Element::SetElementSuivant ( )
+// Algorithme :
+{
+    eSuivant = nullptr;
+} //----- Fin de Méthode
+
+void Element::SetElementSuivant ( Element * unElement )
 // Algorithme :
 {
     eSuivant = unElement;
@@ -74,7 +80,7 @@ Element::~Element ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Element>" << endl;
 #endif
-
+    delete trajet;
 } //----- Fin de ~Element
 
 

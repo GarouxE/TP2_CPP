@@ -27,13 +27,13 @@ void Catalogue::Afficher ( )
 // Algorithme :
 //
 {
-  Element* parcour = voyages.GetTete();
+  Element * parcour = voyages->GetTete();
   if (parcour == nullptr) {
     cout << "Catalogue vide.\r\n" << endl;
     return;
   }
 
-  int taille = voyages.GetTaille();
+  int taille = voyages->GetTaille();
 
   int s = 0, c = 0;
   for(int i = 0; i < taille; ++i)
@@ -56,13 +56,13 @@ void Catalogue::RecherSimple ( const char *dep, const char *arr )
 // Algorithme :
 //
 {
-  Element* parcour = voyages.GetTete();
+  Element * parcour = voyages->GetTete();
   if (parcour == nullptr) {
     cout << "Catalogue vide.\r\n" << endl;
     return;
   }
 
-  int taille = voyages.GetTaille();
+  int taille = voyages->GetTaille();
 
   int s = 0, c = 0;
   for(int i = 0; i < taille; i++)
@@ -89,7 +89,7 @@ void Catalogue::RecherSimple ( const char *dep, const char *arr )
   return;
 }
 
-ListeTrajet & Catalogue::GetListeTrajet()
+ListeTrajet * & Catalogue::GetListeTrajet()
 // Algorithme :
 //
 {
@@ -97,13 +97,14 @@ ListeTrajet & Catalogue::GetListeTrajet()
 }
 
 //-------------------------------------------- Constructeurs - destructeur
-Catalogue::Catalogue ( ListeTrajet & trajetsListe )
+Catalogue::Catalogue ( ListeTrajet * trajetsListe )
 // Algorithme :
 //
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Catalogue>" << endl;
 #endif
+  //voyages = trajetsListe; nguy hiểm vì mình không có hàm copy constructor -> nên dùng pointer
   voyages = trajetsListe;
 } //----- Fin de Catalogue
 

@@ -44,14 +44,14 @@ public:
     // Contrat :  dep et arr sont des villes différentes
     //
     
-    ListeTrajet & GetListeTrajet();
+    ListeTrajet * & GetListeTrajet();
     // Mode d'emploi : la fonction retourne la liste de trajets du catalogue
     //
     // Contrat : aucun
     //
 
 //-------------------------------------------- Constructeurs - destructeur
-    Catalogue (ListeTrajet & trajetsListe );
+    Catalogue (ListeTrajet * trajetsListe );
     // Mode d'emploi : la fonction est un constructeur de Catalogue
     //
     // Contrat : aucun
@@ -67,8 +67,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-  int taille;
-  ListeTrajet voyages;
+  ListeTrajet * voyages;
 //----------------------------------------------------- Attributs protégés
 
 };

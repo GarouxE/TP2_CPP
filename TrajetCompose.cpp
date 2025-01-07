@@ -33,9 +33,9 @@ void TrajetCompose::Afficher ( )
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetCompose>" << endl;
 #endif
-    Element* parcour = trajets.GetTete();
+    Element * parcour = trajets->GetTete();
 
-    for (int i = 0; i < trajets.GetTaille(); i++) {
+    for (int i = 0; i < trajets->GetTaille(); i++) {
         if (i) cout << " - ";
         parcour->GetTrajet()->Afficher();
         parcour = parcour->GetElementSuivant();
@@ -44,7 +44,7 @@ void TrajetCompose::Afficher ( )
 
 
 //-------------------------------------------- Constructeurs - destructeur
-TrajetCompose::TrajetCompose (ListeTrajet & trajetsListe, const char *villeDep, const char *villeArr):Trajet(villeDep,villeArr,COMPOSE)
+TrajetCompose::TrajetCompose (ListeTrajet * trajetsListe, const char *villeDep, const char *villeArr):Trajet(villeDep,villeArr,COMPOSE)
 // Algorithme : initialiser le trajet compose avec la liste de trajets simples et composes qui le composent
 //
 {

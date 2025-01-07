@@ -29,26 +29,33 @@ class Element
 public:
 //----------------------------------------------------- Méthodes publiques
     void Afficher ( );
-    // Mode d'emploi :
+    // Mode d'emploi : affiche le trajet
     //
-    // Contrat :
-    //
-
-    Trajet * GetTrajet ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
+    // Contrat : aucun
     //
 
-    Element * GetElementSuivant ( );
-    // Mode d'emploi :
+    Trajet * & GetTrajet ( );
+    // Mode d'emploi : retourne le trajet
     //
-    // Contrat :
+    // Contrat : aucun
     //
-    void SetElementSuivant ( Element *unElement );
-    // Mode d'emploi :
+
+    Element * & GetElementSuivant ( );
+    // Mode d'emploi : prend un element suivant
     //
-    // Contrat :
+    // Contrat : aucun
+    //
+
+    void SetElementSuivant ( );
+    // Mode d'emploi : rajouter un element null
+    //
+    // Contrat : aucun
+    //
+
+    void SetElementSuivant ( Element * unElement );
+    // Mode d'emploi : rajouter un element
+    //
+    // Contrat : aucun
     //
 
 //-------------------------------------------- Constructeurs - destructeur

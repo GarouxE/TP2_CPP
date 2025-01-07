@@ -38,7 +38,7 @@ public:
     //
 
 //-------------------------------------------- Constructeurs - destructeur
-    TrajetCompose ( ListeTrajet & trajetsListe, const char *villeDep, const char *villeArr );
+    TrajetCompose ( ListeTrajet * trajetsListe, const char *villeDep, const char *villeArr );
     // Mode d'emploi : la fonction est un constructeur de TrajetCompose
     //
     // Contrat : villeDep et villeArr sont des villes différentes
@@ -54,7 +54,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-ListeTrajet trajets;
+ListeTrajet * trajets;
 
 //----------------------------------------------------- Attributs protégés
 

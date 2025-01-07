@@ -1,3 +1,6 @@
+//affichage du trajet compose
+//recherche avancee
+
 /*************************************************************************
                            Main  -  main
                              -------------------
@@ -25,7 +28,7 @@ using namespace std;
 
 int main() {
     ListeTrajet uneListe;
-    Catalogue catalogue(uneListe);
+    Catalogue catalogue(&uneListe);
 
     while(true)
     {
@@ -66,7 +69,7 @@ int main() {
                 ModeTransport mode = (ModeTransport)choixDeTransport;
 
                 Trajet * trajet = new TrajetSimple(depart, arrivee, mode);
-                catalogue.GetListeTrajet().AjouterEnQueue(new Element(trajet));
+                catalogue.GetListeTrajet()->AjouterEnQueue(new Element(trajet));
                 break;
             }
             case 3:
@@ -128,8 +131,10 @@ int main() {
                     trajetsListe.AjouterEnQueue(new Element(trajet));
                 }
 
-                Trajet * trajet = new TrajetCompose(trajetsListe, depart, arrivee);
-                catalogue.GetListeTrajet().AjouterEnQueue(new Element(trajet));
+                Trajet * trajet = new TrajetCompose(&trajetsListe, depart, arrivee);
+                catalogue.GetListeTrajet()->AjouterEnQueue(new Element(trajet));
+
+                delete [] tmp;
                 break;
             }
             case 4:

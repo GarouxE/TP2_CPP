@@ -10,31 +10,31 @@ endif
 
 #Compilation du programme principal
 
-trajets: main.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o Catalogue.o
-	$(EDL) $(OPTIONS) -o trajets main.o Catalogue.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o 
+main: main.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o Catalogue.o
+	$(EDL) $(OPTIONS) -o main main.o Catalogue.o Trajet.o TrajetSimple.o TrajetCompose.o Element.o ListeTrajet.o 
 
 
 #Compilation des fichiers source
 
-main.o: main.cpp Catalogue.h
+main.o: main.cpp
 	$(COMPIL) $(OPTIONS) -c main.cpp
 
-ListTrajet.o: ListTrajet.cpp ListTrajet.h Element.h
+ListTrajet.o: ListTrajet.cpp
 	$(COMPIL) $(OPTIONS) -c ListTrajet.cpp
 
-Element.o: Element.cpp Element.h Trajet.h
+Element.o: Element.cpp
 	$(COMPIL) $(OPTIONS) -c Element.cpp
 
-Catalogue.o: Catalogue.cpp Catalogue.h TrajetCompose.h
+Catalogue.o: Catalogue.cpp
 	$(COMPIL) $(OPTIONS) -c Catalogue.cpp
 
-Trajet.o: Trajet.cpp Trajet.h
+Trajet.o: Trajet.cpp
 	$(COMPIL) $(OPTIONS) -c Trajet.cpp
 
-TrajetSimple.o: TrajetSimple.cpp TrajetSimple.h Trajet.h
+TrajetSimple.o: TrajetSimple.cpp
 	$(COMPIL) $(OPTIONS) -c TrajetSimple.cpp
 
-TrajetCompose.o: TrajetCompose.cpp TrajetSimple.h
+TrajetCompose.o: TrajetCompose.cpp
 	$(COMPIL) $(OPTIONS) -c TrajetCompose.cpp
 
 #Nettoyage

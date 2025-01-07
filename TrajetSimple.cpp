@@ -32,7 +32,17 @@ void TrajetSimple::Afficher ()
 #ifdef MAP
     cout << "Appel a afficher de <TrajetSimple>" << endl;
 #endif
-    cout << "de "<< depart << " a "<< arrive<< " en "<< Transport[(int)mode];
+    cout << "de " << depart << " a "<< arrive<< " en "<< Transport[(int)mode];
+}
+
+ModeTransport & TrajetSimple::GetMode()
+// Algorithme : retourner le mode de transport
+//
+{   
+#ifdef MAP
+    cout << "Appel a GetMode de <TrajetSimple>" << endl;
+#endif
+    return mode;
 }
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -56,7 +66,6 @@ TrajetSimple::~TrajetSimple()
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetSimple>" << endl;
 #endif
-
 } //----- Fin de ~TrajetSimple
 
 

@@ -34,13 +34,13 @@ public:
     // Contrat :
     //
 
-    void AjouterEnQueue (Element *unElement);
+    void AjouterEnQueue (Element * unElement);
     // Mode d'emploi :
     // Permet d'ajoute un element en fin de la liste chainée.
     // Contrat :
     //
 
-    Element *GetTete ( );
+    Element * & GetTete ( );
     // Mode d'emploi :
     //Renvoie l'element en tet de la liste chainée.
     // Contrat :
@@ -70,7 +70,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-    Element *tete;
+    Element * tete;
     int taille;
 //----------------------------------------------------- Attributs protégés
 
