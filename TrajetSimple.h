@@ -39,6 +39,18 @@ public:
     //
     // Contrat : aucun
     //
+    
+    char * GetDepart ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    char * GetArrive ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
     ModeTransport & GetMode();
     // Mode d'emploi : la fonction retourne le mode de transport
@@ -63,6 +75,8 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
+    char *depart;
+    char *arrive;
     ModeTransport mode;
 //----------------------------------------------------- Attributs protégés
 

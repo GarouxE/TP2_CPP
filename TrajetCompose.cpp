@@ -1,5 +1,5 @@
 /*************************************************************************
-                            TrajetCompose  -  une classe qui permet de representer un trajet compose 
+                            TrajetCompose  -  une classe qui permet de representer un trajet compose
                             donc un trajet qui est compose de plusieurs trajets simples et composes
                              -------------------
     début                : 21/11
@@ -35,16 +35,23 @@ void TrajetCompose::Afficher ( )
 #endif
     Element * parcour = trajets->GetTete();
 
-    for (int i = 0; i < trajets->GetTaille(); i++) {
+    for (int i = 0; i < 2; i++){
         if (i) cout << " - ";
         parcour->GetTrajet()->Afficher();
         parcour = parcour->GetElementSuivant();
     }
 } //----- Fin de Méthode
 
+char * TrajetCompose::GetDepart ( ) {
+    return trajets->GetTete()->GetTrajet()->GetDepart();
+} //----- Fin de Méthode
+
+char * TrajetCompose::GetArrive ( ) {
+    return trajets->GetQueue()->GetTrajet()->GetArrive();
+} //----- Fin de Méthode
 
 //-------------------------------------------- Constructeurs - destructeur
-TrajetCompose::TrajetCompose (ListeTrajet * trajetsListe, const char *villeDep, const char *villeArr):Trajet(villeDep,villeArr,COMPOSE)
+TrajetCompose::TrajetCompose (ListeTrajet * trajetsListe):Trajet(COMPOSE)
 // Algorithme : initialiser le trajet compose avec la liste de trajets simples et composes qui le composent
 //
 {
@@ -52,7 +59,6 @@ TrajetCompose::TrajetCompose (ListeTrajet * trajetsListe, const char *villeDep, 
     cout << "Appel au constructeur de <TrajetCompose>" << endl;
 #endif
     trajets = trajetsListe;
-
 } //----- Fin de TrajetCompose
 
 TrajetCompose::~TrajetCompose ( )
@@ -62,6 +68,7 @@ TrajetCompose::~TrajetCompose ( )
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetCompose>" << endl;
 #endif
+    delete trajets;
 } //----- Fin de ~TrajetCompose
 
 

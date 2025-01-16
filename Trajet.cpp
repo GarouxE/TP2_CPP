@@ -13,7 +13,6 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-#include <cstring>
 //------------------------------------------------------ Include personnel
 #include "Trajet.h"
 //------------------------------------------------------------- Constantes
@@ -22,20 +21,43 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 void Trajet::Afficher ( )
-{   
-    if (type == COMPOSE) cout << "Trajet compose de " << depart << " a " << arrive << endl;
-    else if (type == SIMPLE) cout << "Trajet simple de " << depart << " a " << arrive << endl;
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel a afficher de <Trajet>" << endl;
+#endif
+    cout << "appel Trajet" << '\n';
 } //----- Fin de Méthode
 
-char * & Trajet::GetDepart ( ) {
-    return depart;
+char * Trajet::GetDepart ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel a GetDepart de <Trajet>" << endl;
+#endif
+    return nullptr;
 } //----- Fin de Méthode
 
-char * & Trajet::GetArrive ( ) {
-    return arrive;
+char * Trajet::GetArrive ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel a GetArrive de <Trajet>" << endl;
+#endif
+    return nullptr;
 } //----- Fin de Méthode
 
-TypeTrajet Trajet::GetType ( ) {
+
+TypeTrajet Trajet::GetType ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel a GetType de <Trajet>" << endl;
+#endif
     return type;
 } //----- Fin de Méthode
 
@@ -44,17 +66,13 @@ TypeTrajet Trajet::GetType ( ) {
 
 //-------------------------------------------- Constructeurs - destructeur
 
-Trajet::Trajet (const char *villeDep, const char *villeArr, TypeTrajet typeTrajet)
+Trajet::Trajet (TypeTrajet typeTrajet)
 // Algorithme :
 //
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Trajet>" << endl;
 #endif
-    depart = new char [strlen(villeDep) + 1];
-    arrive = new char [strlen(villeArr) + 1];
-    strcpy(depart, villeDep);
-    strcpy(arrive, villeArr);
     type = typeTrajet;
 } //----- Fin de Trajet
 
@@ -66,8 +84,6 @@ Trajet::~Trajet ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Trajet>" << endl;
 #endif
-    delete [] depart;
-    delete [] arrive;
 } //----- Fin de ~Trajet
 
 

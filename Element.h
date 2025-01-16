@@ -22,25 +22,25 @@
 //
 //------------------------------------------------------------------------
 
-class Element 
+class Element
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void Afficher ( );
+    virtual void Afficher ( );
     // Mode d'emploi : affiche le trajet
     //
     // Contrat : aucun
     //
 
-    Trajet * & GetTrajet ( );
+    Trajet * GetTrajet ( );
     // Mode d'emploi : retourne le trajet
     //
     // Contrat : aucun
     //
 
-    Element * & GetElementSuivant ( );
+    Element * GetElementSuivant ( );
     // Mode d'emploi : prend un element suivant
     //
     // Contrat : aucun
@@ -83,4 +83,3 @@ protected:
 //-------------------------------- Autres définitions dépendantes de <Element>
 
 #endif // ELEMENT_H
-

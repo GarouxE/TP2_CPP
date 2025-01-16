@@ -13,7 +13,7 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-
+#include <cstring>
 //------------------------------------------------------ Include personnel
 #include "TrajetSimple.h"
 #include "Trajet.h"
@@ -24,7 +24,6 @@ const char* Transport[] = { "BATEAU", "AUTO", "TRAIN", "AVION"};
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-
 void TrajetSimple::Afficher ()
 // Algorithme : aficher le trajet simple (donc le depart, l'arrivee et le moyen de transport)
 //
@@ -35,10 +34,18 @@ void TrajetSimple::Afficher ()
     cout << "de " << depart << " a "<< arrive<< " en "<< Transport[(int)mode];
 }
 
+char * TrajetSimple::GetDepart ( ) {
+    return depart;
+} //----- Fin de Méthode
+
+char * TrajetSimple::GetArrive ( ) {
+    return arrive;
+} //----- Fin de Méthode
+
 ModeTransport & TrajetSimple::GetMode()
 // Algorithme : retourner le mode de transport
 //
-{   
+{
 #ifdef MAP
     cout << "Appel a GetMode de <TrajetSimple>" << endl;
 #endif
@@ -46,16 +53,19 @@ ModeTransport & TrajetSimple::GetMode()
 }
 
 //-------------------------------------------- Constructeurs - destructeur
-
-TrajetSimple::TrajetSimple (const char *villeDep, const char *villeArr, ModeTransport modeTransport):Trajet(villeDep, villeArr,SIMPLE)
+TrajetSimple::TrajetSimple (const char *villeDep, const char *villeArr, ModeTransport modeTransport):Trajet(SIMPLE)
 // Algorithme : initialiser le trajet simple avec le depart, l'arrivee et le moyen de transport
 //
 {
 #ifdef MAP
     cout << "Appel au constructeur de <TrajetSimple>" << endl;
 #endif
+    unsigned int one = 1;
+    depart = new char [strlen(villeDep) + one];
+    arrive = new char [strlen(villeArr) + one];
+    strcpy(depart, villeDep);
+    strcpy(arrive, villeArr);
     mode = modeTransport;
-
 } //----- Fin de TrajetSimple
 
 
@@ -66,6 +76,8 @@ TrajetSimple::~TrajetSimple()
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetSimple>" << endl;
 #endif
+    delete [] depart;
+    delete [] arrive;
 } //----- Fin de ~TrajetSimple
 
 

@@ -21,6 +21,7 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+
 void Element::Afficher ( )
 // Algorithme :
 {
@@ -34,13 +35,13 @@ void Element::Afficher ( )
 
 } //----- Fin de Méthode
 
-Trajet * & Element::GetTrajet ( )
+Trajet * Element::GetTrajet ( )
 // Algorithme :
 {
     return trajet;
 } //----- Fin de Méthode
 
-Element * & Element::GetElementSuivant ( )
+Element * Element::GetElementSuivant ( )
 // Algorithme :
 {
     return eSuivant;

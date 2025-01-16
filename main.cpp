@@ -27,8 +27,11 @@ using namespace std;
 
 
 int main() {
-    ListeTrajet uneListe;
-    Catalogue catalogue(&uneListe);
+    ListeTrajet * uneListe = new ListeTrajet( );
+    Catalogue catalogue(uneListe);
+
+    string FichierEntree = "Insert.txt";
+    catalogue.Chargement(FichierEntree);
 
     while(true)
     {
@@ -42,8 +45,7 @@ int main() {
         int n;
         cin >> n;
 
-        switch (n)
-        {
+        switch (n) {
             case 1:
                 catalogue.Afficher();
                 break;
@@ -74,26 +76,12 @@ int main() {
             }
             case 3:
             {
-                cout << "Depart :" << endl;
-                char depart[100];
-                cin >> depart;
-
-                cout << "Arrivee :" << endl;
-                char arrivee[100];
-                cin >> arrivee;
-
-                if (strcmp(depart,arrivee) == 0) {
-                    cerr << "Le depart et l'arrivee doivent etre differents" << endl;
-                    break;
-                }
-
-                ListeTrajet trajetsListe;
+                ListeTrajet * trajetsListe = new ListeTrajet ( );
                 cout << "Combien de trajets simples ?" << endl;
                 int nbTrajets;
                 cin >> nbTrajets;
 
                 char *tmp = new char [100];
-                strcpy(tmp, depart);
 
                 for (int i = 0; i < nbTrajets; ++i)
                 {
@@ -101,7 +89,7 @@ int main() {
                     char departS[100];
                     cin >> departS;
 
-                    if (strcmp(tmp,departS)) {
+                    if (strcmp(tmp,departS) && i != 0) {
                         cerr << "Le depart n'est pas valide" << endl;
                         break;
                     }
@@ -109,11 +97,6 @@ int main() {
                     cout << "Arrivee :" << endl;
                     char arriveeS[100];
                     cin >> arriveeS;
-
-                    if (i + 1 == nbTrajets && strcmp(arrivee,arriveeS)) {
-                        cerr << "L'arrivee n'est pas valide" << endl;
-                        break;
-                    }
 
                     if (strcmp(departS, arriveeS) == 0) {
                         cerr << "Le depart et l'arrivee doivent etre differents" << endl;
@@ -128,10 +111,10 @@ int main() {
                     ModeTransport mode = (ModeTransport)choixDeTransport;
 
                     Trajet * trajet = new TrajetSimple(departS, arriveeS, mode);
-                    trajetsListe.AjouterEnQueue(new Element(trajet));
+                    trajetsListe -> AjouterEnQueue(new Element(trajet));
                 }
 
-                Trajet * trajet = new TrajetCompose(&trajetsListe, depart, arrivee);
+                Trajet * trajet = new TrajetCompose(trajetsListe);
                 catalogue.GetListeTrajet()->AjouterEnQueue(new Element(trajet));
 
                 delete [] tmp;

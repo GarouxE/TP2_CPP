@@ -1,5 +1,5 @@
 /*************************************************************************
-                            TrajetCompose  -  une classe qui permet de representer un trajet compose 
+                            TrajetCompose  -  une classe qui permet de representer un trajet compose
                             donc un trajet qui est compose de plusieurs trajets simples et composes
                              -------------------
     début                : 21/11
@@ -14,6 +14,8 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
+#include "TrajetSimple.h"
+#include "Element.h"
 #include "ListeTrajet.h"
 //------------------------------------------------------------- Constantes
 
@@ -37,8 +39,20 @@ public:
     // Contrat : aucun
     //
 
+    char * GetDepart ( );
+    // Mode d'emploi : la fonction retourne la ville de depart du trajet compose
+    //
+    // Contrat : aucun
+    //
+
+    char * GetArrive ( );
+    // Mode d'emploi : la fonction retourne la ville d'arrivee du trajet compose
+    //
+    // Contrat : aucun
+    //
+
 //-------------------------------------------- Constructeurs - destructeur
-    TrajetCompose ( ListeTrajet * trajetsListe, const char *villeDep, const char *villeArr );
+    TrajetCompose ( ListeTrajet * trajetsListe);
     // Mode d'emploi : la fonction est un constructeur de TrajetCompose
     //
     // Contrat : villeDep et villeArr sont des villes différentes

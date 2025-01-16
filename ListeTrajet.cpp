@@ -18,23 +18,25 @@ using namespace std;
 #include "ListeTrajet.h"
 #include "Element.h"
 //------------------------------------------------------------- Constantes
-
+ 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
 void ListeTrajet::Afficher( ) {
     Element *current = tete;
     while (current != nullptr) {
-        current->Afficher();
-        current = current->GetElementSuivant();
+        current-> GetTrajet() ->Afficher();
+        current = current-> GetElementSuivant();
     }
-    cout << "\nTaille actuelle de la liste : " << taille << "\r\n";
+    cout << "\nTaille actuelle de la liste : " << GetTaille() << "\r\n";
 } //----- Fin de Méthode
 
 void ListeTrajet::AjouterEnQueue (Element * unElement)
 {
     unElement->SetElementSuivant();
-    if (!taille) tete = unElement;
+    if (!GetTaille()) {
+      tete = unElement;
+      }
     else {
         Element * parcour = tete;
         while (1) {
@@ -45,17 +47,34 @@ void ListeTrajet::AjouterEnQueue (Element * unElement)
             parcour = parcour->GetElementSuivant();
         }
     }
-    ++taille;
 } //----- Fin de Méthode
 
-Element * & ListeTrajet::GetTete ( )
+Element * ListeTrajet::GetTete ( )
 {
     return tete;
 } //----- Fin de Méthode
 
+Element * ListeTrajet::GetQueue ( )
+{
+    Element * parcour = tete;
+    while (parcour->GetElementSuivant() != nullptr) {
+        parcour = parcour->GetElementSuivant();
+    }
+    return parcour;
+} //----- Fin de Méthode
+
 int ListeTrajet::GetTaille ( )
 {
-    return taille;
+  if (tete == nullptr) return 0;
+  int taille = 0;
+  Element * parcour = tete;
+  while (parcour != nullptr)
+  {
+    parcour = parcour->GetElementSuivant();
+    ++taille;
+  }
+  return taille;
+
 } //----- Fin de Méthode
 
 
@@ -69,7 +88,6 @@ ListeTrajet::ListeTrajet ( )
     cout << "Appel au constructeur de <ListeTrajet>" << endl;
 #endif
     tete = nullptr;
-    taille = 0;
 } //----- Fin de ListeTrajet
 
 
@@ -84,7 +102,7 @@ ListeTrajet::~ListeTrajet ( )
     while (current != nullptr) {
         Element *tmps = current;
         current = current->GetElementSuivant();
-        delete tmps;
+        if(tmps != nullptr) delete tmps;
     }
 } //----- Fin de ~ListeTrajet
 

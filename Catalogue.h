@@ -1,5 +1,5 @@
 /*************************************************************************
-                          Catalogue  -  une classe de catalogue de trajets qui a pour but de 
+                          Catalogue  -  une classe de catalogue de trajets qui a pour but de
                           manipuler et repésenter une liste de trajets
                            -------------------
     début                : 21/11
@@ -11,11 +11,16 @@
 #if ! defined ( CATALOGUE_H )
 #define CATALOGUE_H
 
+
+#include <string>
+#include <fstream>
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
 #include "TrajetSimple.h"
 #include "TrajetCompose.h"
 #include "ListeTrajet.h"
+
+using namespace std;
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -43,12 +48,20 @@ public:
     //
     // Contrat :  dep et arr sont des villes différentes
     //
-    
+
     ListeTrajet * & GetListeTrajet();
     // Mode d'emploi : la fonction retourne la liste de trajets du catalogue
     //
     // Contrat : aucun
     //
+
+    int Chargement(string &name);
+    // Mode d'emploi :  la fonction qui charge tous les trajets simples ou compose present dans le fichier passeer en entrée
+    //
+    // Contrat :  Le fichier doit avoir le  nombre de trajets à ajouter en 1ére ligne
+    //            Si letrajet est simple il s'escrit      "S Ville_Depart Ville_Arrive Num_Moyen_Transport"
+    //            Si letrajet est simple il s'escrit      "C Ville_Debut Ville_Fin Nb_Trajets" suivi de pour chage trajet "Ville_Depart Ville_Arrive Num_Moyen_Transport"
+
 
 //-------------------------------------------- Constructeurs - destructeur
     Catalogue (ListeTrajet * trajetsListe );

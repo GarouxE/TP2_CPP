@@ -38,13 +38,13 @@ public:
     // Contrat :
     //
     
-    char * & GetDepart ( );
+    virtual char * GetDepart ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    char * & GetArrive ( );
+    virtual char * GetArrive ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -56,7 +56,7 @@ public:
     // Contrat :
     //
 
-    Trajet (const char *villeDep, const char *villeArr, TypeTrajet typeTrajet);
+    Trajet (TypeTrajet typeTrajet);
     // Mode d'emploi :
     //
     // Contrat :
@@ -74,8 +74,6 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    char *depart;
-    char *arrive;
     TypeTrajet type;
 };
 

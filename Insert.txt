@@ -1,0 +1,6 @@
+5
+S A B 1
+C 2 A B 1 B C 3
+C 3 A X 1 X Y 2 Y Z 0
+S E Y 2
+S A E 1

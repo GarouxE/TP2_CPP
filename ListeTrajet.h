@@ -22,7 +22,7 @@
 //
 //------------------------------------------------------------------------
 
-class ListeTrajet 
+class ListeTrajet
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -40,7 +40,13 @@ public:
     // Contrat :
     //
 
-    Element * & GetTete ( );
+    Element * GetTete ( );
+    // Mode d'emploi :
+    //Renvoie l'element en tet de la liste chainée.
+    // Contrat :
+    // 
+
+    Element * GetQueue ( );
     // Mode d'emploi :
     //Renvoie l'element en tet de la liste chainée.
     // Contrat :
@@ -71,7 +77,6 @@ public:
 protected:
 //----------------------------------------------------- Méthodes protégées
     Element * tete;
-    int taille;
 //----------------------------------------------------- Attributs protégés
 
 };

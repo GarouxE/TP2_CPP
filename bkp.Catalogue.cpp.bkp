@@ -32,7 +32,7 @@ void Catalogue::Afficher ( )
     cout << "Catalogue vide.\r\n" << endl;
     return;
   }
-  
+
   int taille = voyages->GetTaille();
 
   int s = 0, c = 0;
@@ -113,14 +113,14 @@ int Catalogue::Chargement(string &name)
     int nb;
     fic >> nb;
 
-    for (int i = 0; i < nb; i++) {
-      string type;
-      fic >> type;
+    int i,num;
+    for(i = 0; i < nb; i++)
+    {
+      string type,depart,arrive;
+      fic >> type >> depart >> arrive;
 
-      if (type  == "S" || type == "s") {
-        string depart, arrive;
-        fic >> depart >> arrive;
-
+      if(type  == "S")
+      {
         int moyenTransport;
         fic >> moyenTransport;
 
@@ -129,34 +129,38 @@ int Catalogue::Chargement(string &name)
         voyages -> AjouterEnQueue(new Element(trajet));
       }
 
-      else if (type == "C" || type == "c") {
+      else if(type == "C")
+      {
         int nbTrajets;
         fic >> nbTrajets;
 
-        ListeTrajet * trajetsListe = new ListeTrajet( );
+        ListeTrajet trajetsListe;
 
-        for(int num = 0; num < nbTrajets; num++) {
+        for( num = 0; num < nbTrajets; num++)
+        {
           string deb,fin;
           int moyenTransport;
 
           fic >> deb >> fin >> moyenTransport;
 
-          ModeTransport mode = (ModeTransport) moyenTransport;
+          ModeTransport mode = (ModeTransport)moyenTransport;
           Trajet * trajet = new TrajetSimple(deb.c_str(), fin.c_str(), mode);
-          trajetsListe -> AjouterEnQueue(new Element(trajet));
+          trajetsListe.AjouterEnQueue(new Element(trajet));
         }
-        Trajet * trajet = new TrajetCompose(trajetsListe);
-        voyages -> AjouterEnQueue(new Element(trajet));
+        Trajet * trajet = new TrajetCompose( &trajetsListe);
+        voyages->AjouterEnQueue(new Element(trajet));
       }
 
-      else {
+      else
+      {
         //message d'erreur type non supporté
         cerr << "Type non supporté pour le catalogue"<<endl;
         return 0;
       }
     }
  }
- else {
+ else
+ {
     cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
     return 0;
  }
@@ -172,6 +176,7 @@ Catalogue::Catalogue ( ListeTrajet * trajetsListe )
 #ifdef MAP
     cout << "Appel au constructeur de <Catalogue>" << endl;
 #endif
+  //voyages = trajetsListe; nguy hiểm vì mình không có hàm copy constructor -> nên dùng pointer
   voyages = trajetsListe;
 } //----- Fin de Catalogue
 
@@ -183,7 +188,6 @@ Catalogue::~Catalogue ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Catalogue>" << endl;
 #endif
-  delete voyages;
 } //----- Fin de ~Catalogue
 
 
