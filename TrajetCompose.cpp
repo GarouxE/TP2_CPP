@@ -23,12 +23,7 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-void TrajetCompose::Afficher ( )
-// Algorithme : utiliser un parcour pour parcourir la liste de trajets et afficher chaque trajet
-//S'il est du type TrajetSimple, on fait appel à la fonction Afficher du TrajetSimple.
-//S'il est du type TrajetCompose, on fait appel à la fonction Afficher du TrajetCompose.
-//Sachant que les deux fonctions ayant le même nom donc on ne va pas faire apparaitre les deux cas.
-//
+void TrajetCompose::Afficher ( ) const
 {
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetCompose>" << endl;
@@ -49,6 +44,10 @@ char * TrajetCompose::GetDepart ( ) {
 char * TrajetCompose::GetArrive ( ) {
     return trajets->GetQueue()->GetTrajet()->GetArrive();
 } //----- Fin de Méthode
+
+ListeTrajet * TrajetCompose::GetTrajets ( ) {
+    return trajets;
+}
 
 //-------------------------------------------- Constructeurs - destructeur
 TrajetCompose::TrajetCompose (ListeTrajet * trajetsListe):Trajet(COMPOSE)

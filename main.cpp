@@ -1,6 +1,3 @@
-//affichage du trajet compose
-//recherche avancee
-
 /*************************************************************************
                            Main  -  main
                              -------------------
@@ -30,17 +27,16 @@ int main() {
     ListeTrajet * uneListe = new ListeTrajet( );
     Catalogue catalogue(uneListe);
 
-    string FichierEntree = "Insert.txt";
-    catalogue.Chargement(FichierEntree);
-
     while(true)
     {
         cout << "Menu :" << endl;
         cout << "1. Affichage du catalogue" << endl;
         cout << "2. Ajouter trajet simple" << endl;
         cout << "3. Ajouter trajet compose" << endl;
-        cout << "4. Recherche simple" << endl;
-        cout << "5. Quitter" << endl;
+        cout << "4. Chargement du catalogue" << endl;
+        cout << "5. Sauvegarde du fichier" << endl;
+        cout << "6. Recherche simple" << endl;
+        cout << "7. Quitter" << endl;
 
         int n;
         cin >> n;
@@ -120,7 +116,30 @@ int main() {
                 delete [] tmp;
                 break;
             }
+
             case 4:
+            {
+                string FichierEntree;
+
+                cout << "Nom du fichier pour charger le catalogue: ";
+                cin >> FichierEntree;
+                FichierEntree += ".txt";
+                catalogue.Chargement(FichierEntree);
+                break;
+            }
+
+            case 5:
+            {
+                string FichierSortie; 
+
+                cout << "Nom du fichier a sauvegarder: ";
+                cin >> FichierSortie;
+                FichierSortie += ".txt";
+                catalogue.Sauvegarde(FichierSortie);
+                break;
+            }
+
+            case 6:
             {
                 cout << "Depart :" << endl;
                 char depart[100];
@@ -140,7 +159,7 @@ int main() {
                 catalogue.RecherSimple(depart, arrivee);
                 break;
             }
-            case 5:
+            case 7:
                 return 0;
         }
     }

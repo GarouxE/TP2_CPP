@@ -24,19 +24,12 @@ void Trajet::Afficher ( )
 // Algorithme :
 //
 {
-#ifdef MAP
-    cout << "Appel a afficher de <Trajet>" << endl;
-#endif
-    cout << "appel Trajet" << '\n';
 } //----- Fin de Méthode
 
 char * Trajet::GetDepart ( )
 // Algorithme :
 //
 {
-#ifdef MAP
-    cout << "Appel a GetDepart de <Trajet>" << endl;
-#endif
     return nullptr;
 } //----- Fin de Méthode
 
@@ -44,9 +37,6 @@ char * Trajet::GetArrive ( )
 // Algorithme :
 //
 {
-#ifdef MAP
-    cout << "Appel a GetArrive de <Trajet>" << endl;
-#endif
     return nullptr;
 } //----- Fin de Méthode
 
@@ -55,9 +45,6 @@ TypeTrajet Trajet::GetType ( )
 // Algorithme :
 //
 {
-#ifdef MAP
-    cout << "Appel a GetType de <Trajet>" << endl;
-#endif
     return type;
 } //----- Fin de Méthode
 

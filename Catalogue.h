@@ -15,9 +15,6 @@
 #include <string>
 #include <fstream>
 //--------------------------------------------------- Interfaces utilisées
-#include "Trajet.h"
-#include "TrajetSimple.h"
-#include "TrajetCompose.h"
 #include "ListeTrajet.h"
 
 using namespace std;
@@ -37,13 +34,13 @@ class Catalogue
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void Afficher ( );
+    void Afficher ( ) const;
     // Mode d'emploi : la fonction affiche la liste de trajets du catalogue
     //
     // Contrat :  aucun
     //
 
-    void RecherSimple ( const char *dep, const char *arr );
+    void RecherSimple ( const char *dep, const char *arr ) const;
     // Mode d'emploi :  la fonction recherche un trajet simple dans le catalogue
     //
     // Contrat :  dep et arr sont des villes différentes
@@ -55,13 +52,19 @@ public:
     // Contrat : aucun
     //
 
-    int Chargement(string &name);
+    int Chargement(string & filename);
     // Mode d'emploi :  la fonction qui charge tous les trajets simples ou compose present dans le fichier passeer en entrée
     //
     // Contrat :  Le fichier doit avoir le  nombre de trajets à ajouter en 1ére ligne
     //            Si letrajet est simple il s'escrit      "S Ville_Depart Ville_Arrive Num_Moyen_Transport"
     //            Si letrajet est simple il s'escrit      "C Ville_Debut Ville_Fin Nb_Trajets" suivi de pour chage trajet "Ville_Depart Ville_Arrive Num_Moyen_Transport"
 
+    int Sauvegarde(string & filename);
+    //Mode d'emploi :
+    //
+    // Contrat :
+    //
+    //
 
 //-------------------------------------------- Constructeurs - destructeur
     Catalogue (ListeTrajet * trajetsListe );

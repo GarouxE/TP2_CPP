@@ -12,18 +12,19 @@
 
 //-------------------------------------------------------- Include système
 using namespace std;
+#include <fstream>
 #include <iostream>
 #include <cstring>
 //------------------------------------------------------ Include personnel
 #include "Catalogue.h"
-
-
+#include "TrajetSimple.h"
+#include "TrajetCompose.h"
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-void Catalogue::Afficher ( )
+void Catalogue::Afficher ( ) const
 // Algorithme :
 //
 {
@@ -40,19 +41,22 @@ void Catalogue::Afficher ( )
   {
     Trajet * trajet = parcour->GetTrajet();
     if (trajet->GetType() == SIMPLE) {
+      TrajetSimple * trajetS = dynamic_cast<TrajetSimple *>(trajet);
       cout << "Voyage " << i+1 << " : " << "TS" << ++s << " = ";
+      trajetS->Afficher();
     } else {
+      TrajetCompose * trajetC = dynamic_cast<TrajetCompose *>(trajet);
       cout << "Voyage " << i+1 << " : " << "TC" << ++c << " = ";
+      trajetC->Afficher();
     }
 
-    trajet->Afficher();
     cout << endl;
     parcour = parcour-> GetElementSuivant();
   }
 }
 
 
-void Catalogue::RecherSimple ( const char *dep, const char *arr )
+void Catalogue::RecherSimple ( const char *dep, const char *arr ) const
 // Algorithme :
 //
 {
@@ -96,62 +100,58 @@ ListeTrajet * & Catalogue::GetListeTrajet()
   return voyages;
 }
 
-
-int Catalogue::Chargement(string &name)
+int Catalogue::Chargement(string & filename)
 // Algorithme :
 //
 {
-#ifdef MAP
-    cout << "Appel au constructeur de <Catalogue>" << endl;
-#endif
+  ifstream fichier;
+  fichier.open("./" + filename);
 
-  ifstream fic;
-  fic.open("./"+name);
-
-  if(fic)
+  if (fichier)
   {
-    int nb;
-    fic >> nb;
+    // int nb;
+    // fichier >> nb;
 
-    for (int i = 0; i < nb; i++) {
+    // for (int i = 0; i < nb; i++) 
+    while (!fichier.eof()){
       string type;
-      fic >> type;
+      fichier >> type;
 
       if (type  == "S" || type == "s") {
         string depart, arrive;
-        fic >> depart >> arrive;
+        fichier >> depart >> arrive;
 
         int moyenTransport;
-        fic >> moyenTransport;
+        fichier >> moyenTransport;
 
-        ModeTransport mode = (ModeTransport)moyenTransport;
-        Trajet * trajet = new TrajetSimple(depart.c_str(), arrive.c_str(), mode);
-        voyages -> AjouterEnQueue(new Element(trajet));
+        ModeTransport mode = (ModeTransport) moyenTransport;
+        Trajet * trajetS = new TrajetSimple(depart.c_str(), arrive.c_str(), mode);
+        voyages->AjouterEnQueue(new Element(trajetS));
       }
 
       else if (type == "C" || type == "c") {
         int nbTrajets;
-        fic >> nbTrajets;
+        fichier >> nbTrajets;
 
         ListeTrajet * trajetsListe = new ListeTrajet( );
 
-        for(int num = 0; num < nbTrajets; num++) {
+        for (int num = 0; num < nbTrajets; num++) {
           string deb,fin;
           int moyenTransport;
 
-          fic >> deb >> fin >> moyenTransport;
+          fichier >> deb >> fin >> moyenTransport;
 
           ModeTransport mode = (ModeTransport) moyenTransport;
           Trajet * trajet = new TrajetSimple(deb.c_str(), fin.c_str(), mode);
-          trajetsListe -> AjouterEnQueue(new Element(trajet));
+          trajetsListe->AjouterEnQueue(new Element(trajet));
         }
-        Trajet * trajet = new TrajetCompose(trajetsListe);
-        voyages -> AjouterEnQueue(new Element(trajet));
+        Trajet * trajetC = new TrajetCompose(trajetsListe);
+        voyages->AjouterEnQueue(new Element(trajetC));
       }
 
       else {
         //message d'erreur type non supporté
-        cerr << "Type non supporté pour le catalogue"<<endl;
+        cerr << "Type non supporté pour le catalogue" << endl;
         return 0;
       }
     }
@@ -163,6 +163,44 @@ int Catalogue::Chargement(string &name)
  return 1;
 }
 
+int Catalogue::Sauvegarde(string & filename) 
+// Algorithme :
+//  
+{
+  ofstream fichier("./" + filename);
+
+  if (fichier) {
+    Element * parcour = voyages->GetTete();
+
+    for (int i = 0; i < voyages->GetTaille(); ++i) {
+      Trajet * unTrajet = parcour->GetTrajet();
+      if (unTrajet->GetType() == SIMPLE) {
+        TrajetSimple * unTrajetSimple = dynamic_cast<TrajetSimple*>(unTrajet);
+        fichier << 'S' << ' ' << unTrajetSimple->GetDepart() << ' ' << unTrajetSimple->GetArrive() << ' ' << unTrajetSimple->GetMode() << endl;
+      } else {
+        TrajetCompose * unTrajetCompose = dynamic_cast<TrajetCompose*>(unTrajet);
+        ListeTrajet * lesTrajets = unTrajetCompose->GetTrajets();
+        int taille =  lesTrajets->GetTaille();
+        fichier << 'C' << ' ' << taille;
+
+        Element * parcour = lesTrajets->GetTete();
+        for (int j = 0; j < taille; ++j) {
+          Trajet * unTrajet = parcour->GetTrajet();
+          TrajetSimple * unTrajetSimple = dynamic_cast<TrajetSimple*>(unTrajet);
+          fichier << ' ' << unTrajetSimple->GetDepart() << ' ' << unTrajetSimple->GetArrive() << ' ' << unTrajetSimple->GetMode();
+          
+          parcour = parcour->GetElementSuivant();
+        }
+        fichier << endl;
+      }
+      parcour = parcour->GetElementSuivant();
+    }
+  } else {
+    cerr << "ERREUR: Impossible d'ouvrir le fichier en ecriture." << endl;
+    return 0;
+  }
+  return 1;
+}
 
 //-------------------------------------------- Constructeurs - destructeur
 Catalogue::Catalogue ( ListeTrajet * trajetsListe )

@@ -14,8 +14,6 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
-#include "TrajetSimple.h"
-#include "Element.h"
 #include "ListeTrajet.h"
 //------------------------------------------------------------- Constantes
 
@@ -33,7 +31,7 @@ class TrajetCompose : public Trajet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void Afficher( );
+    void Afficher( ) const;
     // Mode d'emploi : la fonction affiche le trajet compose (donc les trajets simples et les trajets composes qui le composent)
     //
     // Contrat : aucun
@@ -47,6 +45,12 @@ public:
 
     char * GetArrive ( );
     // Mode d'emploi : la fonction retourne la ville d'arrivee du trajet compose
+    //
+    // Contrat : aucun
+    //
+
+    ListeTrajet * GetTrajets ( );
+    // Mode d'emploi : 
     //
     // Contrat : aucun
     //
